@@ -21,11 +21,11 @@ class CarSpawner : ZilchComponent
   {
     if(this.SpawnRight == true)
     {
-      this.SpawnPos = Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0);
+      this.SpawnPos = Real3(this.Owner.Transform.Translation.X + 2, this.Owner.Transform.Translation.Y, 0);
     }
     else
     {
-      this.SpawnPos = Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0);
+      this.SpawnPos = Real3(this.Owner.Transform.Translation.X - 2, this.Owner.Transform.Translation.Y, 0);
     }
     this.TempTimer = this.Timer;
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);

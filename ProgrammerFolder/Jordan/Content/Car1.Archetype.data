@@ -1,11 +1,11 @@
 [Version:1]
 Cog 
 {
-	var Name = "Cube"
+	var Name = "Car2"
 	Transform 
 	{
-		var Translation = Real3{-5.5, 3.5, 0}
-		var Scale = Real3{1, 1, 1}
+		var Translation = Real3{0, 0, 0}
+		var Scale = Real3{0.99000001, 0.99000001, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	Model 
@@ -22,12 +22,12 @@ Cog
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{2, 0, 0}
+		var Velocity = Real3{0, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true
 		var Asleep = false
-		var RotationLocked = false
+		var RotationLocked = true
 		var Mode2D = Mode2DStates.InheritFromSpace
 	}
 	BoxCollider 
@@ -38,5 +38,8 @@ Cog
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
 		var HalfSize = Real3{0.5, 0.5, 0.5}
+	}
+	EnemyMovement 
+	{
 	}
 }
