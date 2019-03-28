@@ -1,19 +1,31 @@
+/************
+Made By: Cory Carlson
+Date Edited: 3/28/19
+Brief: Code controls Time
+************/
 class Timer : ZilchComponent
 {
+  /* Sets Start Time */
   [Property]
   var StartTime : Real = 40;
+  /* Sets Time */
+  [Property]
   var Time : Real = 40;
   function Initialize(init : CogInitializer)
   {
+    /* Sets Time to Start Time */
     this.Time = this.StartTime;
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+   /* Decreases Time by 1 every second. */
    this.Time -= event.Dt;
+   /* When Time is less then 0.01, the Time resets. */
    if(this.Time < 0.01)
    this.Time = 40;
+   /* Displays Time */
    this.Owner.SpriteText.Text = "Time \n`Math.Round(this.Owner.Timer.Time)`";
   }
 }

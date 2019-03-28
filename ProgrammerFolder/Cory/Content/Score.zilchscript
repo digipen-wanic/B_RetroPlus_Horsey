@@ -1,3 +1,8 @@
+/************
+Made By: Cory Carlson
+Date Edited: 3/28/19
+Brief: Code for Score and Highscore
+************/
 class Score : ZilchComponent
 {
   /* Sets Score */
