@@ -1,0 +1,16 @@
+class Timer : ZilchComponent
+{
+  var Time : Real = 40;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+   this.Time -= event.Dt;
+   if(this.Time < 0.01)
+   this.Time = 40;
+   this.Owner.SpriteText.Text = "Time \n`this.Owner.Timer.Time`";
+  }
+}

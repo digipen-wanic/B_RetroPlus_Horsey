@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Timer"
+		var ResourceId = 0x5cfbeec3142955ed
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

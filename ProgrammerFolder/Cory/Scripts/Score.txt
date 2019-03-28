@@ -1,0 +1,59 @@
+class Score : ZilchComponent
+{
+  /* Sets Score */
+  [Property]
+  var Score = 0;
+  /* Sets HighScore */
+  [Property]
+  var HighScore = 0;
+  /* Enables Up Key to be used */
+  [Property]
+  var UpKey : Keys = Keys.Up;
+  /* Enables Space Key to be used */
+  [Property]
+  var SpaceKey : Keys = Keys.Space;
+  /* Next 4 lines represent the Frog's current Y value and the highest Y value the Frog's gotten. These should be later changed to relate to the actual Y
+  value of the Frog*/
+  [Property]
+  var FroggerY = 0;
+  [Property]
+  var HighestY = 0;
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    /* Displays Score if the name of the owner is Score. */
+    if(this.Owner.Name == "Score")
+    this.Owner.SpriteText.Text = "Score \n`this.Owner.Score.Score`";
+    /* Displays HighScore if the name of the owner is HighScore. */
+    if(this.Owner.Name == "HighScore")
+    this.Owner.SpriteText.Text = "HighScore \n`this.Owner.Score.HighScore`";
+    /* Increases Score by 10 if y < HighestY */
+    if(Zero.Keyboard.KeyIsPressed(this.UpKey))
+    {
+      /* Makes the Frog's Y go up by 10 */
+      this.FroggerY += 10;
+      /* If the Y value of the Frog is greater than the highest Y value the Frog's acheived the Score increases by 10 and the HighestY variable is set to the 
+      FroggerY variable */
+      if(this.FroggerY > this.HighestY)
+      {
+      this.Score += 10;
+      this.HighestY = this.FroggerY;
+      }
+    }
+    /* if the Space key is pressed, the Score, the FroggerY variable and the HieghestY variable are all set to 0. This is only here for playtesting purposes. */
+    if(Zero.Keyboard.KeyIsPressed(this.SpaceKey))
+    {
+      this.Score = 0;
+      this.FroggerY = 0;
+      this.HighestY = 0;
+    }
+    /* if the Score is greater than the highscore the HighScore is set to the current Score */
+    if(this.Score > this.HighScore)
+    this.HighScore = this.Score;
+  }
+}
+
