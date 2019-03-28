@@ -1,0 +1,36 @@
+class CarSpawner : ZilchComponent
+{
+  
+  //this will be different depending on what car/log/frog will be spawned by this spawner
+  [Property]
+  var EnemyType : Archetype = null;
+  
+  //Allows the time it takes to spawn one to be changed on an object to object basis
+  [Property]
+  var Timer : Real = 1;
+  
+  var SpawnPos = Real3();
+  
+  var TempTimer : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.SpawnPos = Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0);
+    this.TempTimer = this.Timer;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    
+    if(this.TempTimer <= 0)
+    {
+      this.Space.CreateAtPosition(this.EnemyType, this.SpawnPos);
+      
+      this.TempTimer = this.Timer;
+    }
+    
+    
+    this.TempTimer -= event.Dt;
+  }
+}
