@@ -14,6 +14,6 @@ class Timer : ZilchComponent
    this.Time -= event.Dt;
    if(this.Time < 0.01)
    this.Time = 40;
-   this.Owner.SpriteText.Text = "Time \n`this.Owner.Timer.Time`";
+   this.Owner.SpriteText.Text = "Time \n`Math.Round(this.Owner.Timer.Time)`";
   }
 }

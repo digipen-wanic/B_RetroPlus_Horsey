@@ -6,6 +6,9 @@ class Score : ZilchComponent
   /* Sets HighScore */
   [Property]
   var HighScore = 0;
+  /* Sets CogPath to Timer Object */
+  [Property]
+  var TimerObj : CogPath = null;
   /* Enables Up Key to be used */
   [Property]
   var UpKey : Keys = Keys.Up;
@@ -50,6 +53,16 @@ class Score : ZilchComponent
       this.Score = 0;
       this.FroggerY = 0;
       this.HighestY = 0;
+    }
+    /* If the FroggerY is equal to 100 (should be changed to the end goal's Y) the Score is increased by the Time remaining times 10, also FroggerY and
+    HighestY = 0, and the Time resets.*/
+    if(this.FroggerY == 100)
+    {
+      this.Score += Math.Ceil(this.TimerObj.Cog.Timer.Time*10) as Integer;
+      this.FroggerY = 0;
+      this.HighestY = 0;
+      if(this.Owner.Name == "HighScore")
+      this.TimerObj.Cog.Timer.Time = 40;
     }
     /* if the Score is greater than the highscore the HighScore is set to the current Score */
     if(this.Score > this.HighScore)

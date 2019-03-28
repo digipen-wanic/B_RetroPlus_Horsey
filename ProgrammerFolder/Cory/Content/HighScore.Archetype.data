@@ -30,7 +30,24 @@ Cog
 	{
 		var Score = 0
 		var HighScore = 0
+		var TimerObj = CogPath
+		{
+			var Path = ":/Timer"
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var Cog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
 		var UpKey = Keys.Up
 		var SpaceKey = Keys.Space
+		var FroggerY = 0
+		var HighestY = 0
 	}
 }
