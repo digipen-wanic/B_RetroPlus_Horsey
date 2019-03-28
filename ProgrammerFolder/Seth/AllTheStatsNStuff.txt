@@ -1,0 +1,51 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________________________
+Notes on current game/design features in frogger:
+
+1. each row spawns the same speed/patterened cars, logs, ect.
+2. you get 10 points ever time you manage to move north (*none when you go back and forth - only redeemable per row).
+3. There are turtles that go underwater, there are 2 phases prior to them going underwater - you can stay on top as long as they aren't underwater.
+4. when the timer climbs down from 40 seconds and you are still on the same level it will kill you automatically.
+5. As long as you hit the boxcollider of the enemy you will die - you don't even need to necessarily be "touching" the art for the sprite to die.
+6. Generally the first couple car lanes run relatively slowly.
+7. As you get farther down and closer to the endpoint the enemies will be faster.
+8. Your death animation contains 3 different sprites, and leaves a temporary skull and cross.
+9. All in all you have around 2 minutes (*because you have 3 lives) to get all the frogs in the water spots (*5).
+10. There is a 'slight' delay between movements, but it moves pretty fast.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________________________
+frames/speed of individual items in the game:
+
+CARS:
+1. approximate cube/unit width - 48 pixels ; approximate cube/unit height - 48 pixels.
+2. 1st car row [pixels per second] ~ 48p/1.35s
+3. 2nd car row [pixels per second] ~ 48p/1.04s
+4. 3rd car row [pixels per second] ~ 48p/.84s
+5. 4th car row [pixels per second] ~ 48p/.66s
+6. 5th car row [pixels per second] ~ 48p/(1.17/2)s [this one is a truck, so it had the length of 2]
+
+NOTE: any time is approximated from the end of a car spawn to the very start of another, probably +- .5s for the rates.
+---[pls note that the truck is 2 spaces long]---
+7. 1st car row ~ spawn rate + pattern - 1u/4.69s(*short spawn) | 1u/6.56s(*medium spawn) | 1u/9.56s(*long spawn) DESCRIPTION: spawns: medium/short/long [direction--> left]
+8. 2nd car row ~ spawn rate + pattern - 1u/4.15s(*short spawn) | 1u/5.76s(*medium spawn) | 1u/9.15s(*long spawn) DESCRIPTION: spawns: medium/short/long [direction--> right] 
+9. 3rd car row ~ spawn rate + pattern - 1u/3.51s(*short spawn) | 1u/7.72s(*long spawn) DESCRIPTION: spawns: short/short/long [direction--> left]
+10. 4th car row ~ spawn rate + pattern - 1u/11.84s(*super-long spawn) DESCRIPTION: spawns: super-long [direction--> right]
+11. 5th car row ~ spawn rate + pattern - 1u/3.62s(*short spawn) | 1u/6.61s(*long spawn) DESCRIPTION: spawns: short/long [direction--> left]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+____________________________________________________________________________________________________________________________________________________________________________________________________________
+
+LOGS/TURLES:
+1. approximate cube/unit width - 48 pixels ; approximate cube/unit height - 48 pixels.
+2. 1st log row [pixels per second] ~ 48p/1.84s
+3. 2nd log row [pixels per second] ~ 48p/2s
+4. 3rd log row [pixels per second] ~ 48p/1.92s
+5. 4th log row [pixels per second] ~ 48p/0.68s
+6. 5th log row [pixels per second] ~ 48p/2.07s
+
+NOTE: any time is approximated from the end of a log/turtle spawn to the very start of another, probably +- .5s for the rates.
+---[pls note that many of the logs are mutliple untits long]---
+7. 1st car row ~ spawn rate + pattern - 1u/1.1s(*short spawn) DESCRIPTION: spawns: short [direction--> left]
+8. 2nd car row ~ spawn rate + pattern - 1u/3.2s(*short spawn) | 1u/4.26s(*medium spawn) DESCRIPTION: spawns: medium/short [direction--> right] 
+9. 3rd car row ~ spawn rate + pattern - 1u/1.63s(*short spawn) DESCRIPTION: spawns: short [direction--> right]
+10. 4th car row ~ spawn rate + pattern - 1u/15s(*short spawn) DESCRIPTION: spawns: short [direction--> left]
+11. 5th car row ~ spawn rate + pattern - 1u/.87s(*short spawn) | 1u/1.67(*medium spawn) DESCRIPTION: spawns: medium/medium/short [direction--> right]
