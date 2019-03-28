@@ -1,0 +1,65 @@
+class PlayerMovement : ZilchComponent
+{
+  
+  [Property]
+  var RightKey : Keys = Keys.D;
+  
+  [Property]
+  var LeftKey : Keys = Keys.A;
+  
+  [Property]
+  var DownKey : Keys = Keys.S;
+  
+  [Property]
+  var UpKey : Keys = Keys.W;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.OnMove();
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  function OnMove()
+  {
+    
+    //using this action sequence for the movement will not allow multiple inputs to be put in at once and will make sure that a specific amount is moved each time
+    //for each button press
+    var seq = Action.Sequence(this.Owner.Actions);
+    
+    //right
+    if(Zero.Keyboard.KeyIsPressed(this.RightKey))
+    {
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.2, Ease.Linear);
+      
+    }
+    
+    //left
+    if(Zero.Keyboard.KeyIsPressed(this.LeftKey))
+    {
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.2, Ease.Linear);
+    }
+    //up
+    if(Zero.Keyboard.KeyIsPressed(this.UpKey))
+    {
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.2, Ease.Linear);
+    }
+    //down
+    if(Zero.Keyboard.KeyIsPressed(this.DownKey))
+    {
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.2, Ease.Linear);
+    }
+    Action.Call(seq, this.OnMove);
+  }
+}
+  
+ // function DeathAnimation
+  //{
+    
+    
+    
+    
+    
+    
+ // }
+  
+//}
