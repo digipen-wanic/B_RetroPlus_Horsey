@@ -17,6 +17,12 @@ class PlayerMovement : ZilchComponent
   
   var SpawnPos = Real3();
   
+  [Property]
+  var PlayerJump : SoundCue = null;
+  
+  [Property]
+  var PlayerDeath : SoundCue = null;
+  
   function Initialize(init : CogInitializer)
   {
     this.OnMove();
@@ -36,25 +42,41 @@ class PlayerMovement : ZilchComponent
     //right
     if(Zero.Keyboard.KeyIsPressed(this.RightKey) && !((this.Owner.Transform.Translation.X + 1) >= 10.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.1, Ease.Linear);
-      
+      this.Owner.Sprite.CurrentFrame += 1;
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
+      this.Owner.Transform.EulerAngles = Real3(0,0,-1.5707);
+       this.Space.SoundSpace.PlayCue(this.PlayerJump);
     }
     
     //left
     if(Zero.Keyboard.KeyIsPressed(this.LeftKey) && !((this.Owner.Transform.Translation.X - 1) <= -10.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.1, Ease.Linear);
+      this.Owner.Sprite.CurrentFrame += 1;
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
+      this.Owner.Transform.EulerAngles = Real3(0,0,1.5707);
+      Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
+      this.Space.SoundSpace.PlayCue(this.PlayerJump);
     }
     //up
     if(Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.1, Ease.Linear);
+      this.Owner.Sprite.CurrentFrame += 1;
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.01, Ease.Linear);
+      this.Owner.Transform.EulerAngles = Real3(0,0,0);
+      Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
+      this.Space.SoundSpace.PlayCue(this.PlayerJump);
     }
     //down
     if(Zero.Keyboard.KeyIsPressed(this.DownKey) && !((this.Owner.Transform.Translation.Y - 1) <= -9.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.1, Ease.Linear);
+      this.Owner.Sprite.CurrentFrame += 1;
+      this.Owner.Transform.EulerAngles = Real3(0,0,3.14);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
+      this.Space.SoundSpace.PlayCue(this.PlayerJump);
     }
+    
     Action.Call(seq, this.OnMove);
   }
    function OnCollisionStarted(event : CollisionEvent)
@@ -67,7 +89,7 @@ class PlayerMovement : ZilchComponent
       //resets the player position and velocity
       this.Owner.RigidBody.Velocity = Real3(0,0,0);
       this.Owner.Transform.Translation = this.SpawnPos;
-      
+      this.Space.SoundSpace.PlayCue(this.PlayerDeath);
     }
     
   }
