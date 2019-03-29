@@ -1,0 +1,43 @@
+class EnemyMovement : ZilchComponent
+{
+  //find the player so it knows what it collided with.
+  var Collided : Cog = null;
+  
+  //this is so that whne it hits the player the velocity can be reset so that it does not get our of sync
+  var Velocity = Real3();
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    //sets the cog to the player
+    this.Collided = this.Space.FindObjectByName("Player");
+    //test writeline
+    Console.WriteLine(this.Collided);
+    this.Velocity = this.Owner.RigidBody.Velocity;
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+}    
+
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    
+
+    if(event.OtherObject == this.Collided)
+    {
+      Console.WriteLine("Chungus");
+      //resets the player position and velocity
+      this.Collided.Transform.Translation = Real3(0.5, -8.5, 0);
+      this.Collided.RigidBody.Velocity = Real3(0,0,0);
+      this.Owner.RigidBody.Velocity = this.Velocity;
+    }
+    else
+    {
+      this.Owner.Destroy();
+    }
+    
+  }
+   function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+}
