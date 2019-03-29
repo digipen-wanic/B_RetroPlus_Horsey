@@ -13,10 +13,16 @@ class PlayerMovement : ZilchComponent
   [Property]
   var UpKey : Keys = Keys.W;
   
+  var Goal : Cog = null;
+  
+  var SpawnPos = Real3();
+  
   function Initialize(init : CogInitializer)
   {
     this.OnMove();
-    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    this.SpawnPos = Real3(0.5, -8.5, 0);
+    this.Goal = this.Space.FindObjectByName("Goal");
+    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
   
@@ -30,34 +36,39 @@ class PlayerMovement : ZilchComponent
     //right
     if(Zero.Keyboard.KeyIsPressed(this.RightKey) && !((this.Owner.Transform.Translation.X + 1) >= 10.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.2, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.1, Ease.Linear);
       
     }
     
     //left
     if(Zero.Keyboard.KeyIsPressed(this.LeftKey) && !((this.Owner.Transform.Translation.X - 1) <= -10.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.2, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.1, Ease.Linear);
     }
     //up
     if(Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.2, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.1, Ease.Linear);
     }
     //down
     if(Zero.Keyboard.KeyIsPressed(this.DownKey) && !((this.Owner.Transform.Translation.Y - 1) <= -9.5))
     {
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.2, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.1, Ease.Linear);
     }
     Action.Call(seq, this.OnMove);
   }
    function OnCollisionStarted(event : CollisionEvent)
   {
-      Console.WriteLine("Chungus");
-      //resets the player position and velocity
-      this.Owner.Transform.Translation = Real3(0.5, -8.5, 0);
-      this.Owner.RigidBody.Velocity = Real3(0,0,0);
       
+      
+    if(event.OtherObject != this.Goal)
+    {
+      Console.WriteLine("pretzel");
+      //resets the player position and velocity
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      this.Owner.Transform.Translation = this.SpawnPos;
+      
+    }
     
   }
 }
