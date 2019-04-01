@@ -1,0 +1,19 @@
+class TimeBar : ZilchComponent
+{
+  var ScaleIni : Real = 4;
+  [Property]
+  var TimerObj : CogPath = null;
+  function Initialize(init : CogInitializer)
+  {
+    this.ScaleIni = this.Owner.Transform.Scale.X;
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.TimerObj.Cog != null && this.TimerObj.Cog.Timer != null)
+    {
+      this.Owner.Transform.Scale = Real3((this.TimerObj.Cog.Timer.Time/this.TimerObj.Cog.Timer.StartTime) * this.ScaleIni, 1,1);
+    }
+  }
+}

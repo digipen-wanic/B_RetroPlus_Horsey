@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Background_02"
+		var ResourceId = 0x5cc2724e6b874563
+		var FrameSizeX = 672
+		var FrameSizeY = 738
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 336
+		var OriginY = 369
+		var PixelsPerUnit = 36
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
