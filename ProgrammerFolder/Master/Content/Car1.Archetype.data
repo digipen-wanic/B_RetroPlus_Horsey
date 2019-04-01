@@ -1,28 +1,16 @@
 [Version:1]
 Cog 
 {
-	var Name = "Car2"
+	var Name = "Car1"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
-		var Scale = Real3{0.99000001, 0.99000001, 1}
+		var Translation = Real3{0, 0.0078125, 0}
+		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
-	}
-	Model 
-	{
-		var Visible = true
-		var ViewCulling = true
-		var VisibilityEvents = true
-		var OverrideBoundingBox = false
-		var LocalAabbCenter = Real3{0, 0, 0}
-		var LocalAabbHalfExtents = Real3{1, 1, 1}
-		var GroupSortValue = 0
-		var Material = "583afb5e7bf75e18:ZeroMaterial"
-		var Mesh = "4de0354322b345ae:Cube"
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{2, 0, 0}
+		var Velocity = Real3{-2, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = false
@@ -37,9 +25,28 @@ Cog
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
-		var HalfSize = Real3{0.5, 0.5, 0.5}
+		var HalfSize = Real3{0.375, 0.375, 0.5}
 	}
 	EnemyMovement 
 	{
+	}
+	Sprite 
+	{
+		var Visible = true
+		var ViewCulling = true
+		var VisibilityEvents = true
+		var OverrideBoundingBox = false
+		var LocalAabbCenter = Real3{0, 0, 0}
+		var LocalAabbHalfExtents = Real3{1, 1, 1}
+		var GroupSortValue = 0
+		var Material = "582c575af53d18c9:AlphaSprite"
+		var VertexColor = Real4{1, 1, 1, 1}
+		var GeometryMode = SpriteGeometryMode.ZPlane
+		var SpriteSource = "5cfe872a6af73453:Car1"
+		var FlipX = false
+		var FlipY = false
+		var AnimationActive = true
+		var AnimationSpeed = 1
+		var StartFrame = 0
 	}
 }

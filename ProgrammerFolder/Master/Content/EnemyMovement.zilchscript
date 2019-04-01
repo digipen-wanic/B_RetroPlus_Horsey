@@ -3,7 +3,7 @@ class EnemyMovement : ZilchComponent
   //find the player so it knows what it collided with.
   var Collided : Cog = null;
   
-  //this is so that whne it hits the player the velocity can be reset so that it does not get our of sync
+  //this is so that when it hits the player the velocity can be reset so that it does not get our of sync
   var Velocity = Real3();
   
   function Initialize(init : CogInitializer)
