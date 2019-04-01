@@ -4,7 +4,7 @@ ImageContent
 	SpriteSourceBuilder 
 	{
 		var Name = "Player_0"
-		var ResourceId = 0x5cc26c97ddf4abb4
+		var ResourceId = 0x5cfe8126a2a19776
 		var FrameSizeX = 64
 		var FrameSizeY = 64
 		var FrameCount = 2

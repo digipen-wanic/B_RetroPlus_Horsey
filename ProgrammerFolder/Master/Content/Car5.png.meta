@@ -11,10 +11,17 @@ ImageContent
 		var FrameDelay = 0.0833333358
 		var OriginX = 46
 		var OriginY = 25
-		var PixelsPerUnit = 34
+		var PixelsPerUnit = 36
 		var Sampling = SpriteSampling.Linear
 		var Looping = true
 		var Slices = Real4{0, 0, 0, 0}
 		var Fill = SpriteFill.Stretch
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"FroggerThings"
+		}
 	}
 }

@@ -1,16 +1,16 @@
 [Version:1]
 Cog 
 {
-	var Name = "Car1"
+	var Name = "Car2"
 	Transform 
 	{
-		var Translation = Real3{0, 0.0078125, 0}
-		var Scale = Real3{1, 1, 1}
+		var Translation = Real3{0, 0.0137500763, 0}
+		var Scale = Real3{0.99000001, 0.99000001, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{-2, 0, 0}
+		var Velocity = Real3{-1.35000002, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = false
@@ -25,7 +25,7 @@ Cog
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"
 		var Offset = Real3{0, 0, 0}
-		var HalfSize = Real3{0.375, 0.375, 0.5}
+		var HalfSize = Real3{0.5, 0.5, 0.5}
 	}
 	EnemyMovement 
 	{
