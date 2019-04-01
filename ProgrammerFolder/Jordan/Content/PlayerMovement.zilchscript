@@ -29,7 +29,7 @@ class PlayerMovement : ZilchComponent
     this.SpawnPos = Real3(0.5, -8.5, 0);
     this.Goal = this.Space.FindObjectByName("Goal");
     Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
-    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
   
   function OnMove()
@@ -93,7 +93,19 @@ class PlayerMovement : ZilchComponent
     }
     
   }
+
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Transform.Transition.Y > -0.5 && this.Owner.Transform.Transition.Y < 6)
+    {
+      if(this.Owner.BoxCollider.ContactCount != 0)
+      {}
+      
+    }
+  }
 }
+  
  // function DeathAnimation
   //{
     
