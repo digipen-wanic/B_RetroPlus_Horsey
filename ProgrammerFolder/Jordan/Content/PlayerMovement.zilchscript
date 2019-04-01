@@ -43,7 +43,7 @@ class PlayerMovement : ZilchComponent
     if(Zero.Keyboard.KeyIsPressed(this.RightKey) && !((this.Owner.Transform.Translation.X + 1) >= 10.5))
     {
       this.Owner.Sprite.CurrentFrame += 1;
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X + 1.2, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
       this.Owner.Transform.EulerAngles = Real3(0,0,-1.5707);
        this.Space.SoundSpace.PlayCue(this.PlayerJump);
@@ -53,7 +53,7 @@ class PlayerMovement : ZilchComponent
     if(Zero.Keyboard.KeyIsPressed(this.LeftKey) && !((this.Owner.Transform.Translation.X - 1) <= -10.5))
     {
       this.Owner.Sprite.CurrentFrame += 1;
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X - 1.2, this.Owner.Transform.Translation.Y, 0), 0.01, Ease.Linear);
       this.Owner.Transform.EulerAngles = Real3(0,0,1.5707);
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
       this.Space.SoundSpace.PlayCue(this.PlayerJump);
@@ -62,7 +62,7 @@ class PlayerMovement : ZilchComponent
     if(Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
       this.Owner.Sprite.CurrentFrame += 1;
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1.2, 0), 0.01, Ease.Linear);
       this.Owner.Transform.EulerAngles = Real3(0,0,0);
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
       this.Space.SoundSpace.PlayCue(this.PlayerJump);
@@ -72,7 +72,7 @@ class PlayerMovement : ZilchComponent
     {
       this.Owner.Sprite.CurrentFrame += 1;
       this.Owner.Transform.EulerAngles = Real3(0,0,3.14);
-      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.01, Ease.Linear);
+      Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1.2, 0), 0.01, Ease.Linear);
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
       this.Space.SoundSpace.PlayCue(this.PlayerJump);
     }

@@ -1,0 +1,27 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Car5"
+		var ResourceId = 0x5cfe872a6af61644
+		var FrameSizeX = 93
+		var FrameSizeY = 51
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 46
+		var OriginY = 25
+		var PixelsPerUnit = 36
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"FroggerThings"
+		}
+	}
+}
