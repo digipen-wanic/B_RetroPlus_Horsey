@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "Car3"
+		var ResourceId = 0x5cfe872a6af79524
+		var FrameSizeX = 62
+		var FrameSizeY = 57
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 31
+		var OriginY = 28
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
