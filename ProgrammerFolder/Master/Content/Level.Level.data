@@ -67,7 +67,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{0.5, -7.33331966, 20}
+			var Translation = Real3{-8.95493317, -8.48491669, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -120,7 +120,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 22.1034279
+			var Size = 22.1034126
 		}
 		EditorCameraController 
 		{
@@ -129,7 +129,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{0.5, -7.33331966, 0}
+			var LookTarget = Real3{-8.95493317, -8.48491669, -4.90387251e-08}
 			var MoveSensitivity = 1
 		}
 	}
@@ -213,8 +213,8 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0, -8, 0}
-			var Scale = Real3{2, 2, 1}
+			var Translation = Real3{0, -9.5, 0}
+			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		PlayerMovement 
@@ -231,7 +231,7 @@ Level
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
 			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.349999994, 0.324999988, 0.5}
+			var HalfSize = Real3{0.409999996, 0.5, 0.5}
 		}
 		RigidBody 
 		{
@@ -364,7 +364,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{0, -9.5, -5}
+			var Translation = Real3{0.05647856, -11.0814247, -5}
 			var Scale = Real3{20, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -549,7 +549,7 @@ Level
 		var Name = "CarSpawnerObj1"
 		Transform 
 		{
-			var Translation = Real3{-20, -7.5, 0}
+			var Translation = Real3{-20, -7.75, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -559,7 +559,7 @@ Level
 		var Name = "CarSpawnerObj2"
 		Transform 
 		{
-			var Translation = Real3{-20, -6.5, 0}
+			var Translation = Real3{-20, -6.25, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -569,7 +569,7 @@ Level
 		var Name = "CarSpawnerObj3"
 		Transform 
 		{
-			var Translation = Real3{-20, -5.5, 0}
+			var Translation = Real3{-20, -5, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -579,7 +579,7 @@ Level
 		var Name = "CarSpawnerObj4"
 		Transform 
 		{
-			var Translation = Real3{-20, -4.5, 0}
+			var Translation = Real3{-20, -3.75, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
@@ -589,9 +589,38 @@ Level
 		var Name = "CarSpawnerObj5"
 		Transform 
 		{
-			var Translation = Real3{-20, -3.5, 0}
+			var Translation = Real3{-20, -2, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [ContextId:17]
+	{
+		var Name = "Background_02"
+		Transform 
+		{
+			var Translation = Real3{0, 0, -1}
+			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5cc27507325fe40e:Background_02"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
 		}
 	}
 }

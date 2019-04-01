@@ -51,7 +51,7 @@ class PlayerMovement : ZilchComponent
       Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 0.1, Ease.Linear);
     }
     //down
-    if(Zero.Keyboard.KeyIsPressed(this.DownKey) && !((this.Owner.Transform.Translation.Y - 1) <= -9.5))
+    if(Zero.Keyboard.KeyIsPressed(this.DownKey) && !((this.Owner.Transform.Translation.Y - 1) <= -9.6))
     {
       Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 0.1, Ease.Linear);
     }
