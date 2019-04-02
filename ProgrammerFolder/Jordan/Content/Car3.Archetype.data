@@ -4,13 +4,13 @@ Cog
 	var Name = "Car3"
 	Transform 
 	{
-		var Translation = Real3{0, 0, 0}
+		var Translation = Real3{0, 0.0137500763, 0}
 		var Scale = Real3{0.99000001, 0.99000001, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{-2, 0, 0}
+		var Velocity = Real3{-1.19000006, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = false

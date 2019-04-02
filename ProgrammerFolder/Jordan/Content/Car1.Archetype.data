@@ -10,7 +10,7 @@ Cog
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{-1.35000002, 0, 0}
+		var Velocity = Real3{-0.74000001, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = false

@@ -3,15 +3,15 @@ ImageContent
 {
 	SpriteSourceBuilder 
 	{
-		var Name = "HappyFrog"
-		var ResourceId = 0x5cc27a8da7fe9e0c
-		var FrameSizeX = 64
+		var Name = "TripleTurtleSink_0"
+		var ResourceId = 0x5cc3bfe63aa942ff
+		var FrameSizeX = 192
 		var FrameSizeY = 64
-		var FrameCount = 1
+		var FrameCount = 2
 		var FrameDelay = 0.0833333358
-		var OriginX = 32
+		var OriginX = 96
 		var OriginY = 32
-		var PixelsPerUnit = 36
+		var PixelsPerUnit = 64
 		var Sampling = SpriteSampling.Nearest
 		var Looping = true
 		var Slices = Real4{0, 0, 0, 0}

@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "LongLog1"
+		var ResourceId = 0x5cc3cc37a1d548ad
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

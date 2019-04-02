@@ -1,4 +1,4 @@
-class CarSpawner : ZilchComponent
+class SpecialNumber5 : ZilchComponent
 {
   
   //this will be different depending on what car/log/frog will be spawned by this spawner
@@ -8,9 +8,6 @@ class CarSpawner : ZilchComponent
   //Allows the time it takes to spawn one to be changed on an object to object basis
   [Property]
   var TimerShort : Real = 1;
-  
-  [Property]
-  var TimerMedium : Real = 1;
   
   [Property]
   var TimerLong : Real = 1;
@@ -56,13 +53,6 @@ class CarSpawner : ZilchComponent
     {
       this.Space.CreateAtPosition(this.EnemyType, this.SpawnPos);
       
-      this.TempTimer = this.TimerMedium;
-      this.CurrentSpawnPattern += 1;
-    }
-    if(this.TempTimer <= 0 && this.CurrentSpawnPattern == 3)
-    {
-      this.Space.CreateAtPosition(this.EnemyType, this.SpawnPos);
-      
       this.TempTimer = this.TimerShort;
       this.CurrentSpawnPattern = 1;
     }
@@ -70,3 +60,4 @@ class CarSpawner : ZilchComponent
     this.TempTimer -= event.Dt;
   }
 }
+

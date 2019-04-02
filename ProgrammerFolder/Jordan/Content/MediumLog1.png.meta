@@ -3,16 +3,16 @@ ImageContent
 {
 	SpriteSourceBuilder 
 	{
-		var Name = "HappyFrog"
-		var ResourceId = 0x5cc27a8da7fe9e0c
-		var FrameSizeX = 64
-		var FrameSizeY = 64
+		var Name = "MediumLog1"
+		var ResourceId = 0x5cc3c9e8321ac73f
+		var FrameSizeX = 159
+		var FrameSizeY = 46
 		var FrameCount = 1
 		var FrameDelay = 0.0833333358
-		var OriginX = 32
-		var OriginY = 32
+		var OriginX = 79
+		var OriginY = 23
 		var PixelsPerUnit = 36
-		var Sampling = SpriteSampling.Nearest
+		var Sampling = SpriteSampling.Linear
 		var Looping = true
 		var Slices = Real4{0, 0, 0, 0}
 		var Fill = SpriteFill.Stretch

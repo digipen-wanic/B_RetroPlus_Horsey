@@ -83,7 +83,7 @@ class PlayerMovement : ZilchComponent
   {
       
       
-    if(event.OtherObject != this.Goal)
+    if(event.OtherObject.Archetype == Archetype.Car1 && event.OtherObject.Archetype == Archetype.Car2 && event.OtherObject.Archetype == Archetype.Car3 && event.OtherObject.Archetype == Archetype.Car4 && event.OtherObject.Archetype == Archetype.Car5)
     {
       Console.WriteLine("pretzel");
       //resets the player position and velocity
@@ -91,16 +91,34 @@ class PlayerMovement : ZilchComponent
       this.Owner.Transform.Translation = this.SpawnPos;
       this.Space.SoundSpace.PlayCue(this.PlayerDeath);
     }
-    
-  }
-
-  
+    else if(event.OtherObject == this.Space.FindObjectByName("Goal1"))
+    {
+      Console.WriteLine("pretzel");
+      //resets the player position and velocity
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      this.Owner.Transform.Translation = this.SpawnPos;
+      this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+    }
+    else
+    {
+      Console.WriteLine("Bat");
+      this.Owner.RigidBody.Velocity = event.OtherObject.RigidBody.Velocity;
+      
+    }
+  }  
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if(this.Owner.Transform.Transition.Y > -0.5 && this.Owner.Transform.Transition.Y < 6)
+    if(this.Owner.Transform.Translation.Y > -0.5 && this.Owner.Transform.Translation.Y < 6)
     {
-      if(this.Owner.BoxCollider.ContactCount != 0)
-      {}
+      if(this.Owner.BoxCollider.ContactCount == 0)
+      {
+        this.Owner.RigidBody.Velocity = Real3(0,0,0);
+        this.Owner.Transform.Translation = this.SpawnPos;
+        this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+        Console.WriteLine("Jorts");
+        
+        
+      }
       
     }
   }
