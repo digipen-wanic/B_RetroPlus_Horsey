@@ -1,0 +1,16 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "EndButton"
+		var ResourceId = 0x5c1c86d561496c86
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Seth Death"
+		}
+	}
+}

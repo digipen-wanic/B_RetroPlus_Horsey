@@ -1,0 +1,27 @@
+class DeathScreen : ZilchComponent
+{
+  
+  var Lose : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Space.LevelSettings.LevelVars.Epic == 1)
+    {
+      Console.WriteLine("Fish");
+      //this.Owner.Transform.Translation = Real3(0, 0, 0);
+      this.Space.CreateAtPosition(Archetype.GameOverScreen, Real3(0,0,0));
+      //this.Owner.Transform.Translation = Real3(0, -1.45, 0);
+      this.Space.CreateAtPosition(Archetype.NumberAnimation, Real3(0, -1.45, 2));
+      //this.Owner.Transform.Translation = Real3(1.66, -3.57, 0);
+      this.Space.CreateAtPosition(Archetype.NumberAnimation, Real3(1.66, -3.57, 2));
+      //this.Owner.Transform.Translation = Real3(-1.938, -3.576, 0);
+      this.Space.CreateAtPosition(Archetype.NumberAnimation, Real3(-1.938, -3.576, 2));
+      
+    }
+  }
+}

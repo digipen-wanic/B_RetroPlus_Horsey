@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "StartScreen"
+		var ResourceId = 0x5cc3bc1221cc210b
+		var LoaderType = "Level"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"StartScreen"
+		}
+	}
+}
