@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "CoinCredit"
+		var ResourceId = 0x5c1c9ee0ea1ec9ce
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

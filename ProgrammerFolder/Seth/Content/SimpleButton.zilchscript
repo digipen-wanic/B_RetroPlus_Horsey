@@ -1,0 +1,84 @@
+/*****************************
+edited by Seth Riedy
+date: 12/17/2018
+brief: Add to buttons to add visual efects of clicking 
+*****************************/
+
+class SimpleButton : ZilchComponent
+{
+  [Dependency]
+  var Reactive : Reactive = null;
+  [Dependency]
+  var Sprite : Sprite = null;
+  
+  var OrigColor : Real4 = Real4();
+  var OrigScale : Real3 = Real3(); 
+  //color to change to when hovering
+  [Property]
+  var HoverColor : Real4 = Real4(0.5, 0.5, 0.5, 1);
+  //set between 0 and 1 for what percent of the original scale hovering is.
+  [Property]
+  var HoverScalePercent : Real = 0.8;
+  
+  //color for when you click and depress the button
+  [Property]
+  var ClickColor : Real4 = Real4(0.6, 0, 0, 1);
+  //scale present for when you click and depress the button
+  [Property]
+  var ClickScale : Real = 0.6;
+  //time for any color and scale changes to happen
+  [Property]
+  var ChangeTime : Real = 0.1;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.OrigColor = this.Sprite.VertexColor;
+    this.OrigScale = this.Owner.Transform.Scale;
+    //connect to sense when mouse is hovering over
+    Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+    //connect to sense when you stop hovering
+    Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    //connect to handle click and release
+    Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+    Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+  }
+  //reset scale and color to normal
+  function OnLeftMouseUp(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    
+    this.Owner.Transform.Scale = this.OrigScale;
+    this.Sprite.VertexColor = this.OrigColor;
+  }
+  //set to click color and scale 
+  function OnLeftMouseDown(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    
+    this.Owner.Transform.Scale = this.OrigScale * this.ClickScale;
+    this.Sprite.VertexColor = this.ClickColor;
+  }
+  //reset button to normal
+  function OnMouseExit(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    var grp = Action.Group(this.Owner.Actions);
+    
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale, this.ChangeTime, Ease.QuadInOut);
+    
+    Action.Property(grp, @this.Sprite.VertexColor, this.OrigColor, this.ChangeTime, Ease.QuadInOut);
+  }
+  //when mouse hovers visually adjust to show the hovering 
+  function OnMouseEnter(event : ViewportMouseEvent)
+  {
+    this.Owner.Actions.Cancel();
+    var grp = Action.Group(this.Owner.Actions);
+    
+    Action.Property(grp, @this.Owner.Transform.Scale, this.OrigScale * this.HoverScalePercent, this.ChangeTime, Ease.QuadInOut);
+    
+    Action.Property(grp, @this.Sprite.VertexColor, this.HoverColor, this.ChangeTime, Ease.QuadInOut);
+    
+    //this.Owner.Transform.Scale = this.OrigScale * this.HoverScalePercent;
+    //this.Sprite.VertexColor = this.HoverColor;
+  }
+}

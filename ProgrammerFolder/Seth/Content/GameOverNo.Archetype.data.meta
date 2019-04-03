@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "GameOverNo"
+		var ResourceId = 0x5c1c9bc87a1b7b14
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

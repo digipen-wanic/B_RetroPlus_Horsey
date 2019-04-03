@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Car1"
+		var ResourceId = 0x5cfbef6f6e1a71ba
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

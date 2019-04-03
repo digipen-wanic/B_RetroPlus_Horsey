@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "GameOverScreen"
+		var ResourceId = 0x5c1c9bd27d7c375d
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

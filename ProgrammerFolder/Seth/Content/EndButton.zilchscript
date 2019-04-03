@@ -1,0 +1,43 @@
+/****************************************
+edited by Seth Riedy
+date: 12/17/2018
+brief: this will make a reactive object go to a different level when clicked
+****************************************/
+
+
+class EndButton : ZilchComponent
+{
+  //make sure click started on this
+  var ClickedOn : Boolean = false;
+  //level that will be changed to when clicked, please set in the editor
+  [Property]
+  var NextLevel : Level = null;
+  function Initialize(init : CogInitializer)
+  {
+    //connect to run a function when our object is finished being clicked.
+    Zero.Connect(this.Owner, Events.LeftMouseUp, this.OnLeftMouseUp);
+    //connect to when mouse goes down
+    Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+    //connect to when mouse leaves the button area
+    Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);  
+  }
+  //when mouse is not over the object reset clicked on to false
+  function OnMouseExit(event : MouseEvent)
+  {
+    this.ClickedOn = false;
+  }
+  //when the mouse left clicks on the button set clicked on to true
+  function OnLeftMouseDown(event : MouseEvent)
+  {
+    this.ClickedOn = true;
+  }
+  //change level if mouse is released after being clicked on and still on the object
+  function OnLeftMouseUp(event : MouseEvent)
+  {
+    if(this.ClickedOn)
+    {
+      //change the level when left mouse is released on the object
+      this.GameSession.Quit();
+    }
+  }
+}

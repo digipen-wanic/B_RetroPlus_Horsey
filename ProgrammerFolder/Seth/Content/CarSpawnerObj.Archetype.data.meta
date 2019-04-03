@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "CarSpawnerObj"
+		var ResourceId = 0x5cfe8f17cb273bf0
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}
