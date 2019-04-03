@@ -1,8 +1,0 @@
-[Version:1]
-ContentLibrary 
-{
-	var Name = "Frogger"
-	var LibraryId = 0x5cfa880e435ddda0
-	var SourceControlType = ""
-	var ReadOnly = false
-}
