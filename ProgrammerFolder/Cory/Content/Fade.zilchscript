@@ -1,0 +1,31 @@
+class Fade : ZilchComponent
+{
+  [Property]
+  var ColorShiftTime = 1.0;
+  function Initialize(init : CogInitializer)
+  {
+    this.TurnInvisible();
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+  }
+   function TurnInvisible()
+  {
+    //a sequence is a list of actions to complete in a specfic orderand time
+    var seq = Action.Sequence(this.Owner.Actions);
+    //This will turn the sprite's alpha to 0 over time.
+    Action.Property(seq,  @this.Owner.Sprite.VertexColor, Real4(1,1,1,0), this.ColorShiftTime, Ease.Linear);
+    //Next thing to do in the sequence is queue the next alpha change
+    Action.Call(seq, this.TurnOpaque);
+  }
+  function TurnOpaque()
+  {
+    //a sequence is a list of actions to complete in a specfic orderand time
+    var seq = Action.Sequence(this.Owner.Actions);
+    //This will turn the sprite's alpha to 1 over time.
+    Action.Property(seq,  @this.Owner.Sprite.VertexColor, Real4(1,1,1,1), this.ColorShiftTime, Ease.Linear);
+    //Next thing to do in the sequence is queue the next alpha change
+    Action.Call(seq, this.TurnInvisible);
+  }
+}

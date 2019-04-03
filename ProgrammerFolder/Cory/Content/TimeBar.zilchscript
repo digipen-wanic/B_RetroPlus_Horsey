@@ -1,19 +1,10 @@
-/************
-Made By: Cory Carlson
-Date Edited: 3/28/19
-Brief: Makes the TimeBar's size relate to the Time remaining. 
-************/
-
 class TimeBar : ZilchComponent
 {
-  /* Sets Intial Scale size */
   var ScaleIni : Real = 4;
-  /* Sets CogPath to Timer Object */
   [Property]
   var TimerObj : CogPath = null;
   function Initialize(init : CogInitializer)
   {
-    /* Sets ScaleIni to Owners X scale */
     this.ScaleIni = this.Owner.Transform.Scale.X;
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
@@ -22,7 +13,6 @@ class TimeBar : ZilchComponent
   {
     if(this.TimerObj.Cog != null && this.TimerObj.Cog.Timer != null)
     {
-      /* Sets Owner's X scale to relate to the current amount of Time remaining. */
       this.Owner.Transform.Scale = Real3((this.TimerObj.Cog.Timer.Time/this.TimerObj.Cog.Timer.StartTime) * this.ScaleIni, 1,1);
     }
   }

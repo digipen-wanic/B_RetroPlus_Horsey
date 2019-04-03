@@ -4,6 +4,6 @@ TextContent
 	ZilchScriptBuilder 
 	{
 		var Name = "Score"
-		var ResourceId = 0x5cfbe76096b6817f
+		var ResourceId = 0x5cc26fb9912fed2f
 	}
 }

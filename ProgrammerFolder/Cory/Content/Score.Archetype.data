@@ -4,7 +4,7 @@ Cog
 	var Name = "Score"
 	Transform 
 	{
-		var Translation = Real3{-4.60459232, 0.779406548, 0}
+		var Translation = Real3{-5.23470879, 9.59772015, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -33,6 +33,21 @@ Cog
 		var TimerObj = CogPath
 		{
 			var Path = ":/Timer"
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var Cog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
+		var FroggerObj = CogPath
+		{
+			var Path = ":/Player"
 			var ErrorOnResolveToNull = false
 			var ErrorOnPathCantCompute = false
 			var ErrorOnDirectLinkFail = false

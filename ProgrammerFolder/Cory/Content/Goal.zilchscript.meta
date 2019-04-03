@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Goal"
+		var ResourceId = 0x5cc27918f96ee7c1
+	}
+}

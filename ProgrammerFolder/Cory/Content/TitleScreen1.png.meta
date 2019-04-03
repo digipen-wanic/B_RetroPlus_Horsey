@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "TitleScreen1"
+		var ResourceId = 0x5cc3bd91f630d31c
+		var FrameSizeX = 708
+		var FrameSizeY = 738
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 354
+		var OriginY = 369
+		var PixelsPerUnit = 36
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}
