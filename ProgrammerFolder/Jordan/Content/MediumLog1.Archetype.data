@@ -4,7 +4,7 @@ Cog
 	var Name = "MediumLog1"
 	Transform 
 	{
-		var Translation = Real3{16.7202721, 3.5686481, 0.00499916077}
+		var Translation = Real3{-0.0138888359, 0, 0}
 		var Scale = Real3{1, 1, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
@@ -38,7 +38,7 @@ Cog
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{1, 0, 0}
+		var Velocity = Real3{1.92999995, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true

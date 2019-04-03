@@ -2,12 +2,12 @@ class Goal : ZilchComponent
 {
   
     
-  var PlayerDeath : SoundCue = null;
+  var PlayerWin : SoundCue = null;
   
   
   function Initialize(init : CogInitializer)
   {
-    this.PlayerDeath = SoundCue.PlayerDeath;
+    this.PlayerWin = SoundCue.PlayerDeath;
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
   }
@@ -21,7 +21,8 @@ class Goal : ZilchComponent
       //resets the player position and velocity
       player.RigidBody.Velocity = Real3(0,0,0);
       player.Transform.Translation = Real3(0.5, -8.5, 0);
-      this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+      this.Space.SoundSpace.PlayCue(this.PlayerWin);
+      //this.Space.LevelVars.Lives -= 1;
       
     }
     

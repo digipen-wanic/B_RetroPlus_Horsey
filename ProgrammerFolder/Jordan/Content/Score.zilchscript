@@ -14,21 +14,38 @@ class Score : ZilchComponent
   /* Sets CogPath to Timer Object */
   [Property]
   var TimerObj : CogPath = null;
+  /* Sets CogPath to Frogger Object */
+  [Property]
+  var FroggerObj : CogPath = null;
   /* Enables Up Key to be used */
   [Property]
   var UpKey : Keys = Keys.Up;
+  /* Enables Up Key to be used */
+  [Property]
+  var LeftKey : Keys = Keys.Left;
+  /* Enables Up Key to be used */
+  [Property]
+  var RightKey : Keys = Keys.Right;
+  /* Enables Up Key to be used */
+  [Property]
+  var DownKey : Keys = Keys.Down;
   /* Enables Space Key to be used */
   [Property]
   var SpaceKey : Keys = Keys.Space;
   /* Next 4 lines represent the Frog's current Y value and the highest Y value the Frog's gotten. These should be later changed to relate to the actual Y
   value of the Frog*/
   [Property]
-  var FroggerY = 0;
+  var FroggerY: Real = 0;
   [Property]
-  var HighestY = 0;
+  var HighestY: Real = -9.5;
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    if(this.FroggerObj.Cog != null)
+    {
+      this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
+      this.HighestY = this.FroggerY;
+    }
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -42,15 +59,16 @@ class Score : ZilchComponent
     /* Increases Score by 10 if y < HighestY */
     if(Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
+     // Console.WriteLine("Score update");
       /* Makes the Frog's Y go up by 10 */
-      this.FroggerY += 10;
+    //  this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
       /* If the Y value of the Frog is greater than the highest Y value the Frog's acheived the Score increases by 10 and the HighestY variable is set to the 
       FroggerY variable */
-      if(this.FroggerY > this.HighestY)
-      {
-      this.Score += 10;
-      this.HighestY = this.FroggerY;
-      }
+     // if(this.FroggerY > this.HighestY)
+     // {
+      //.this.Score += 10;
+      //this.HighestY = this.FroggerY;
+   //   }
     }
     /* if the Space key is pressed, the Score, the FroggerY variable and the HieghestY variable are all set to 0. This is only here for playtesting purposes. */
     if(Zero.Keyboard.KeyIsPressed(this.SpaceKey))
@@ -61,11 +79,11 @@ class Score : ZilchComponent
     }
     /* If the FroggerY is equal to 100 (should be changed to the end goal's Y) the Score is increased by the Time remaining times 10, also FroggerY and
     HighestY = 0, and the Time resets.*/
-    if(this.FroggerY == 100)
+    if(this.FroggerY > 4 && Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
       this.Score += Math.Ceil(this.TimerObj.Cog.Timer.Time*10) as Integer;
       this.FroggerY = 0;
-      this.HighestY = 0;
+      this.HighestY = -10.5;
       if(this.Owner.Name == "HighScore")
       this.TimerObj.Cog.Timer.Time = 40;
     }
