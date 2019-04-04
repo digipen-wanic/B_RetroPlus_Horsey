@@ -4,7 +4,7 @@ ImageContent
 	SpriteSourceBuilder 
 	{
 		var Name = "SmallLog1"
-		var ResourceId = 0x5cc3c9e8321be3fc
+		var ResourceId = 0x5cc6813ef712259f
 		var FrameSizeX = 117
 		var FrameSizeY = 54
 		var FrameCount = 1
@@ -12,7 +12,7 @@ ImageContent
 		var OriginX = 58
 		var OriginY = 27
 		var PixelsPerUnit = 36
-		var Sampling = SpriteSampling.Linear
+		var Sampling = SpriteSampling.Nearest
 		var Looping = true
 		var Slices = Real4{0, 0, 0, 0}
 		var Fill = SpriteFill.Stretch

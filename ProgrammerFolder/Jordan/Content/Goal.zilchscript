@@ -7,7 +7,7 @@ class Goal : ZilchComponent
   
   function Initialize(init : CogInitializer)
   {
-    this.PlayerWin = SoundCue.PlayerWinAlt;
+    //this.PlayerWin = SoundCue.PlayerWinAlt;
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
   }
@@ -16,6 +16,9 @@ class Goal : ZilchComponent
   {
     if(event.OtherObject == this.Space.FindObjectByName("Player"))
     {
+      event.OtherObject.Actions.Cancel();
+      event.OtherObject.PlayerMovement.OnMove();
+      this.Space.DispatchEvent("Goal", ZilchEvent());
       this.Owner.Sprite.SpriteSource = SpriteSource.HappyFrog;
       var player = this.Space.FindObjectByName("Player");
       //resets the player position and velocity
