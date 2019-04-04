@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "LongLogPlus_0"
+		var ResourceId = 0x5cc67c35d713ffc7
+		var FrameSizeX = 192
+		var FrameSizeY = 64
+		var FrameCount = 3
+		var FrameDelay = 0.0833333358
+		var OriginX = 96
+		var OriginY = 32
+		var PixelsPerUnit = 36
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

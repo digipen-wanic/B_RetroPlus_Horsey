@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "SmallLog1Copy1"
+		var ResourceId = 0x5cc67d27e7e68cf9
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}

@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "MediumLog1Copy1"
+		var ResourceId = 0x5cc67d5dfc4d0d75
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+}
