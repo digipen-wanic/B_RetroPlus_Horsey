@@ -5,6 +5,8 @@ Brief: Code for Score and Highscore
 ************/
 class Score : ZilchComponent
 {
+  [Property]
+  var CurrentLevel : Level = null;
   /* Sets Score */
   [Property]
   var Score = 0;
@@ -41,10 +43,22 @@ class Score : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    //Jordan Add in>
+    Zero.Connect(this.Space, "Goal", this.OnGoal);
+    if(this.FroggerObj.Cog != null)
+    {
     this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
     this.HighestY = this.FroggerY;
+    }
+    //Jordan Add in<
   }
-
+  //Jordan Add in>
+  function OnGoal(event : Event)
+  {
+    Console.WriteLine("Goal Reseting");
+    this.HighestY = -10.5;
+  }
+  //Jordan Add in<
   function OnLogicUpdate(event : UpdateEvent)
   {
     /* Displays Score if the name of the owner is Score. */

@@ -12,7 +12,11 @@ class Goal : ZilchComponent
     {
       this.Owner.Sprite.SpriteSource = SpriteSource.HappyFrog;
       
-      
+      //Jordan Add in>
+      event.OtherObject.Actions.Cancel();
+      event.OtherObject.PlayerMovement.OnMove();
+      this.Space.DispatchEvent("Goal", ZilchEvent());
+      //Jordan Add in<
     }
     
   }

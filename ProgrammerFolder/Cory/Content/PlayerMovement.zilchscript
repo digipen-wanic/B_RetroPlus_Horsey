@@ -73,7 +73,7 @@ class PlayerMovement : ZilchComponent
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
       if(this.ScoreObj.Cog!=null )
       {
-        
+        Console.WriteLine("HighestY: `this.ScoreObj.Cog.Score.HighestY`");
         if(this.Owner.Transform.Translation.Y > this.ScoreObj.Cog.Score.HighestY-1)
         {
           //add in score adjusting

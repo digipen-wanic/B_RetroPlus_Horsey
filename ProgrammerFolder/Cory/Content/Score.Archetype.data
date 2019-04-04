@@ -28,6 +28,7 @@ Cog
 	}
 	Score 
 	{
+		var CurrentLevel = "5cc3bc1221cc210b:StartScreen"
 		var Score = 0
 		var HighScore = 0
 		var TimerObj = CogPath
@@ -61,6 +62,9 @@ Cog
 			var PathPreference2 = CogPathPreference.Absolute
 		}
 		var UpKey = Keys.Up
+		var LeftKey = Keys.Left
+		var RightKey = Keys.Right
+		var DownKey = Keys.Down
 		var SpaceKey = Keys.Space
 		var FroggerY = 0
 		var HighestY = 0
