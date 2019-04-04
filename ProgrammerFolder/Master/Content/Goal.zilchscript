@@ -1,7 +1,13 @@
 class Goal : ZilchComponent
 {
+  
+    
+  var PlayerWin : SoundCue = null;
+  
+  
   function Initialize(init : CogInitializer)
   {
+    this.PlayerWin = SoundCue.PlayerDeath;
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
   }
@@ -11,7 +17,12 @@ class Goal : ZilchComponent
     if(event.OtherObject == this.Space.FindObjectByName("Player"))
     {
       this.Owner.Sprite.SpriteSource = SpriteSource.HappyFrog;
-      
+      var player = this.Space.FindObjectByName("Player");
+      //resets the player position and velocity
+      player.RigidBody.Velocity = Real3(0,0,0);
+      player.Transform.Translation = Real3(0.5, -8.5, 0);
+      this.Space.SoundSpace.PlayCue(this.PlayerWin);
+      //this.Space.LevelVars.Lives -= 1;
       
     }
     

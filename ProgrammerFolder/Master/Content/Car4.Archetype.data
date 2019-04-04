@@ -10,7 +10,7 @@ Cog
 	}
 	RigidBody 
 	{
-		var Velocity = Real3{2, 0, 0}
+		var Velocity = Real3{1.50999999, 0, 0}
 		var AngularVelocity = Real3{0, 0, 0}
 		var DynamicState = RigidBodyDynamicState.Dynamic
 		var AllowSleep = true
@@ -20,7 +20,7 @@ Cog
 	}
 	BoxCollider 
 	{
-		var Ghost = false
+		var Ghost = true
 		var SendsEvents = true
 		var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 		var CollisionGroup = "4e740859314e5515:DefaultGroup"

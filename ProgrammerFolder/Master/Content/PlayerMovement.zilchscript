@@ -23,13 +23,19 @@ class PlayerMovement : ZilchComponent
   [Property]
   var PlayerDeath : SoundCue = null;
   
+  [Property]
+  var ScoreObj : CogPath = null;
+  
+  [Property]
+  var TimerObj : CogPath = null;
+  
   function Initialize(init : CogInitializer)
   {
     this.OnMove();
     this.SpawnPos = Real3(0.5, -8.5, 0);
     this.Goal = this.Space.FindObjectByName("Goal");
     Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
-    //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
   
   function OnMove()
@@ -65,7 +71,28 @@ class PlayerMovement : ZilchComponent
       Action.Property(seq, @this.Owner.Transform.Translation, Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1.2, 0), 0.01, Ease.Linear);
       this.Owner.Transform.EulerAngles = Real3(0,0,0);
       Action.Property(seq, @this.Owner.Sprite.CurrentFrame, this.Owner.Sprite.CurrentFrame + 1, 0.1, Ease.Linear);
+      if(this.ScoreObj.Cog!=null )
+      {
+        
+        if(this.Owner.Transform.Translation.Y > this.ScoreObj.Cog.Score.HighestY-1)
+        {
+          //add in score adjusting
+          Action.Property(seq, @this.ScoreObj.Cog.Score.HighestY, this.Owner.Transform.Translation.Y, 0, Ease.Linear);
+          Action.Property(seq, @this.ScoreObj.Cog.Score.Score, this.ScoreObj.Cog.Score.Score + 10, 0, Ease.Linear);
+        }
+        if(this.Owner.Transform.Translation.Y > 4)
+        {
+          //add in score adjusting
+          Action.Property(seq, @this.ScoreObj.Cog.Score.Score, this.ScoreObj.Cog.Score.Score + Math.Ceil(this.TimerObj.Cog.Timer.Time*10) as Integer, 0, Ease.Linear);
+          this.ScoreObj.Cog.Score.HighestY = -10.5;
+        }
+      }
+      else
+      {
+        Console.WriteLine("Error missing score object");
+      }
       this.Space.SoundSpace.PlayCue(this.PlayerJump);
+      //Console.WriteLine("`this.ScoreObj.Cog.Score.HighestY`");
     }
     //down
     if(Zero.Keyboard.KeyIsPressed(this.DownKey) && !((this.Owner.Transform.Translation.Y - 1) <= -9.5))
@@ -83,17 +110,56 @@ class PlayerMovement : ZilchComponent
   {
       
       
-    if(event.OtherObject != this.Goal)
+    if(event.OtherObject.Archetype == Archetype.Car1 && event.OtherObject.Archetype == Archetype.Car2 && event.OtherObject.Archetype == Archetype.Car3 && event.OtherObject.Archetype == Archetype.Car4 && event.OtherObject.Archetype == Archetype.Car5)
     {
       Console.WriteLine("pretzel");
       //resets the player position and velocity
       this.Owner.RigidBody.Velocity = Real3(0,0,0);
       this.Owner.Transform.Translation = this.SpawnPos;
       this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+      this.Space.LevelSettings.LevelVars.Lives -= 1;
     }
-    
+    else if(event.OtherObject == this.Space.FindObjectByName("Goal1"))
+    {
+      Console.WriteLine("pretzel");
+      //resets the player position and velocity
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      this.Owner.Transform.Translation = this.SpawnPos;
+    }
+    else
+    {
+      Console.WriteLine("Bat");
+      this.Owner.RigidBody.Velocity = event.OtherObject.RigidBody.Velocity;
+      
+    }
+  }  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Owner.Transform.Translation.Y > -0.5 && this.Owner.Transform.Translation.Y < 6)
+    {
+      if(this.Owner.BoxCollider.ContactCount == 0)
+      {
+        this.Owner.RigidBody.Velocity = Real3(0,0,0);
+        this.Owner.Transform.Translation = this.SpawnPos;
+        this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+        Console.WriteLine("Jorts");
+        this.Space.LevelSettings.LevelVars.Lives -= 1;
+        Console.WriteLine(this.Space.LevelSettings.LevelVars.Lives);
+        
+        
+      }
+      
+      
+    }
+    else
+    {
+      this.Owner.RigidBody.Velocity = Real3(0,0,0);
+      
+      
+    }
   }
 }
+  
  // function DeathAnimation
   //{
     

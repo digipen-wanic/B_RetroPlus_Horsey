@@ -13,7 +13,7 @@ class TimeBar : ZilchComponent
   {
     if(this.TimerObj.Cog != null && this.TimerObj.Cog.Timer != null)
     {
-      this.Owner.Transform.Scale = Real3((this.TimerObj.Cog.Timer.Time/this.TimerObj.Cog.Timer.StartTime) * this.ScaleIni, 1,1);
+      this.Owner.Transform.Scale = Real3((this.TimerObj.Cog.Timer.Time/this.TimerObj.Cog.Timer.StartTime) * this.ScaleIni, 0.5,0.5);
     }
   }
 }
