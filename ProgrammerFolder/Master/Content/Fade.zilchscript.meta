@@ -1,0 +1,16 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "Fade"
+		var ResourceId = 0x5cc3c1e32102d8d2
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Cory Pack Start Screen"
+		}
+	}
+}

@@ -1,0 +1,27 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "PRESSANYKEYTOSTART"
+		var ResourceId = 0x5cc3bf40b989b4e2
+		var FrameSizeX = 131
+		var FrameSizeY = 5
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 65
+		var OriginY = 2
+		var PixelsPerUnit = 12
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Sprites for start screen"
+		}
+	}
+}

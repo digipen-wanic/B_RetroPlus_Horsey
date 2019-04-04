@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "SmallLog1"
+		var ResourceId = 0x5cc3c9e8321be3fc
+		var FrameSizeX = 117
+		var FrameSizeY = 54
+		var FrameCount = 1
+		var FrameDelay = 0.0833333358
+		var OriginX = 58
+		var OriginY = 27
+		var PixelsPerUnit = 36
+		var Sampling = SpriteSampling.Linear
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

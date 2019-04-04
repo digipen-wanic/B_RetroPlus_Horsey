@@ -1,0 +1,40 @@
+class LevelVars : ZilchComponent
+{
+  
+  var Lives : Real = 3;
+  
+  [Property]
+  var CurrentLevel : Level = null;
+  
+  [Property]
+  var GameStarted = 0;
+  
+  var Epic : Real = 0;
+  
+  function Initialize(init : CogInitializer)
+  {
+  Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.CurrentLevel == Level.StartScreen && this.GameStarted == 0 && Zero.Keyboard.IsAnyKeyDown())
+    {
+      this.GameStarted = 1;
+      this.Space.LoadLevel(Level.Level);
+    }
+    if(this.Lives == 0)
+    {
+      Console.WriteLine("Fish");
+      //this.Owner.Transform.Translation = Real3(0, 0, 0);
+      this.Space.CreateAtPosition(Archetype.GameOverScreen, Real3(0,0,9));
+      //this.Owner.Transform.Translation = Real3(0, -1.45, 0);
+      this.Space.CreateAtPosition(Archetype.NumberAnimation, Real3(0, -1.45, 9));
+      //this.Owner.Transform.Translation = Real3(1.66, -3.57, 0);
+      this.Space.CreateAtPosition(Archetype.GameOverNo, Real3(1.66, -3.57, 9));
+      //this.Owner.Transform.Translation = Real3(-1.938, -3.576, 0);
+      this.Space.CreateAtPosition(Archetype.GameOverYes, Real3(-1.938, -3.576, 9));
+      this.Lives = -3    ;}
+    
+  }
+}

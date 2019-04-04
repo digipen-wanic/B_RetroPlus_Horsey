@@ -1,0 +1,18 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "Score"
+		var ResourceId = 0x5cfbec2a6e6a59f0
+		var LoaderType = "Cog"
+		var Version = 0
+	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Cory Pack Start Screen"
+		}
+	}
+}

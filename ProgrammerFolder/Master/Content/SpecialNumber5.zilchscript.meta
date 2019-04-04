@@ -1,0 +1,9 @@
+[Version:1]
+TextContent 
+{
+	ZilchScriptBuilder 
+	{
+		var Name = "SpecialNumber5"
+		var ResourceId = 0x5cc3d9e0dde065d6
+	}
+}
