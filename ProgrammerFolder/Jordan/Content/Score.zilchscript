@@ -5,6 +5,8 @@ Brief: Code for Score and Highscore
 ************/
 class Score : ZilchComponent
 {
+  [Property]
+  var CurrentLevel : Level = null;
   /* Sets Score */
   [Property]
   var Score = 0;
@@ -38,27 +40,50 @@ class Score : ZilchComponent
   var FroggerY: Real = 0;
   [Property]
   var HighestY: Real = -9.5;
+  
+  [Property]
+  var HighScoreObj : CogPath = null;
+  
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    //Jordan Add in>
+    Zero.Connect(this.Space, "Goal", this.OnGoal);
     if(this.FroggerObj.Cog != null)
     {
-      this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
-      this.HighestY = this.FroggerY;
+    this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
+    this.HighestY = this.FroggerY-1;
     }
+    //Jordan Add in<
   }
-
+  //Jordan Add in>
+  function OnGoal(event : Event)
+  {
+    Console.WriteLine("Goal Reseting");
+    this.HighestY = -11.5;
+    this.Score += Math.Ceil(this.TimerObj.Cog.Timer.Time*10) as Integer;
+    if(this.Score > this.HighScore)
+    {
+      this.HighScore = this.Score;
+    }
+    this.TimerObj.Cog.Timer.Time = 40;
+  }
+  //Jordan Add in<
   function OnLogicUpdate(event : UpdateEvent)
   {
     /* Displays Score if the name of the owner is Score. */
     if(this.Owner.Name == "Score")
     this.Owner.SpriteText.Text = "Score \n`this.Owner.Score.Score`";
     /* Displays HighScore if the name of the owner is HighScore. */
-    if(this.Owner.Name == "HighScore")
-    this.Owner.SpriteText.Text = "HighScore \n`this.Owner.Score.HighScore`";
-    /* Increases Score by 10 if y < HighestY */
-    if(Zero.Keyboard.KeyIsPressed(this.UpKey))
+    if(this.HighScoreObj.Cog != null)
     {
+      this.HighScoreObj.Cog.SpriteText.Text = "HighScore \n`this.Owner.Score.HighScore`";
+     // if(this.Score > this.HighScore)
+      //  this.HighScore = this.Score;
+    }
+    /* Increases Score by 10 if y < HighestY */
+   // if(Zero.Keyboard.KeyIsPressed(this.UpKey))
+   // {
      // Console.WriteLine("Score update");
       /* Makes the Frog's Y go up by 10 */
     //  this.FroggerY = this.FroggerObj.Cog.Transform.Translation.Y;
@@ -69,26 +94,28 @@ class Score : ZilchComponent
       //.this.Score += 10;
       //this.HighestY = this.FroggerY;
    //   }
-    }
+    //}
     /* if the Space key is pressed, the Score, the FroggerY variable and the HieghestY variable are all set to 0. This is only here for playtesting purposes. */
-    if(Zero.Keyboard.KeyIsPressed(this.SpaceKey))
+    /*if(Zero.Keyboard.KeyIsPressed(this.SpaceKey))
     {
       this.Score = 0;
       this.FroggerY = 0;
       this.HighestY = 0;
-    }
+    }*/
     /* If the FroggerY is equal to 100 (should be changed to the end goal's Y) the Score is increased by the Time remaining times 10, also FroggerY and
     HighestY = 0, and the Time resets.*/
-    if(this.FroggerY > 4 && Zero.Keyboard.KeyIsPressed(this.UpKey))
+   /* if(this.FroggerY > 4 && Zero.Keyboard.KeyIsPressed(this.UpKey))
     {
-      this.Score += Math.Ceil(this.TimerObj.Cog.Timer.Time*10) as Integer;
+      
       this.FroggerY = 0;
-      this.HighestY = -10.5;
+      this.HighestY = -11.5;
       if(this.Owner.Name == "HighScore")
       this.TimerObj.Cog.Timer.Time = 40;
-    }
+    }*/
     /* if the Score is greater than the highscore the HighScore is set to the current Score */
-    if(this.Score > this.HighScore)
-    this.HighScore = this.Score;
+    Console.WriteLine("Score: `this.Score`");
+    Console.WriteLine("HighScore: `this.HighScore`");
+    if(this.Score> this.HighScore)
+      this.HighScore = this.Score;
   }
 }

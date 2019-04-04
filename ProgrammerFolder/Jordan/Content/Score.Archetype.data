@@ -4,8 +4,8 @@ Cog
 	var Name = "Score"
 	Transform 
 	{
-		var Translation = Real3{-5.23470879, 9.59772015, 0}
-		var Scale = Real3{1, 1, 1}
+		var Translation = Real3{-7.87573767, 9.01082706, 0}
+		var Scale = Real3{0.641505241, 0.641505241, 1}
 		var Rotation = Quaternion{0, 0, 0, 1}
 	}
 	SpriteText 
@@ -28,6 +28,7 @@ Cog
 	}
 	Score 
 	{
+		var CurrentLevel = "null"
 		var Score = 0
 		var HighScore = 0
 		var TimerObj = CogPath
@@ -61,8 +62,26 @@ Cog
 			var PathPreference2 = CogPathPreference.Absolute
 		}
 		var UpKey = Keys.Up
+		var LeftKey = Keys.Left
+		var RightKey = Keys.Right
+		var DownKey = Keys.Down
 		var SpaceKey = Keys.Space
 		var FroggerY = 0
 		var HighestY = 0
+		var HighScoreObj = CogPath
+		{
+			var Path = ":/HighScore"
+			var ErrorOnResolveToNull = false
+			var ErrorOnPathCantCompute = false
+			var ErrorOnDirectLinkFail = false
+			var UpdateCogOnPathChange = true
+			var UpdatePathOnCogChange = true
+			var UpdateCogOnInitialize = true
+			var ResolvedNullErrorOccurred = false
+			var Cog = 4294967293
+			var PathPreference0 = CogPathPreference.CogRelative
+			var PathPreference1 = CogPathPreference.SpaceRelative
+			var PathPreference2 = CogPathPreference.Absolute
+		}
 	}
 }

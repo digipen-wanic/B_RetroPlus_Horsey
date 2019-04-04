@@ -87,7 +87,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{4.59266186, -0.657307208, 30}
+			var Translation = Real3{-0.357512563, 1.11267686, 30}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -140,7 +140,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 36.4423561
+			var Size = 26.9971695
 		}
 		EditorCameraController 
 		{
@@ -149,7 +149,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{4.59266186, -0.657307208, 10}
+			var LookTarget = Real3{-0.357512563, 1.11267686, 10}
 			var MoveSensitivity = 1
 		}
 	}
@@ -277,10 +277,10 @@ Level
 		}
 		PlayerMovement 
 		{
-			var RightKey = Keys.D
-			var LeftKey = Keys.A
-			var DownKey = Keys.S
-			var UpKey = Keys.W
+			var RightKey = Keys.Right
+			var LeftKey = Keys.Left
+			var DownKey = Keys.Down
+			var UpKey = Keys.Up
 			var PlayerJump = "5cfe8f9b85119114:PlayerJump"
 			var PlayerDeath = "5cfe944ef804d22f:PlayerDeath"
 			var ScoreObj = CogPath
@@ -510,7 +510,7 @@ Level
 			var TimerShort = 3.05999994
 			var TimerMedium = 3.05999994
 			var TimerLong = 3.05999994
-			var SpawnDis = 3
+			var SpawnDis = 1
 			var SpawnRight = true
 		}
 	}
@@ -557,10 +557,10 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cc3cd574d830d72:MediumLog1"
-			var TimerShort = 2.3900001
-			var TimerMedium = 2.3900001
-			var TimerLong = 4.59000015
-			var SpawnDis = 2
+			var TimerShort = 3.20000005
+			var TimerMedium = 3.20000005
+			var TimerLong = 4.0999999
+			var SpawnDis = 1
 			var SpawnRight = true
 		}
 	}
@@ -1230,14 +1230,6 @@ Level
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{0.641505241, 0.641505241, 1}
 		}
-		Score 
-		{
-			var FroggerObj = CogPath
-			{
-				var Path = ":/Player"
-				var Cog = 5
-			}
-		}
 	}
 	Cog [InheritId:"5cfbec2d6f1737db:HighScore"][ContextId:27]
 	{
@@ -1246,14 +1238,6 @@ Level
 			var Translation = Real3{-2.26988316, 8.91823387, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{0.639999986, 0.639999986, 1}
-		}
-		Score 
-		{
-			var FroggerObj = CogPath
-			{
-				var Path = ":/Player"
-				var Cog = 5
-			}
 		}
 	}
 	Cog [InheritId:"5cfbeec3142955ed:Timer"][ContextId:7]
@@ -1450,7 +1434,7 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-10.0223522, 4.80000019, 0.00499916077}
+			var Translation = Real3{-10.4797859, 4.80000019, 0.00499916077}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}

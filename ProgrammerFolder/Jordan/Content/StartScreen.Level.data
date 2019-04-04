@@ -97,7 +97,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-0.520623446, 1.31207585, 20}
+			var Translation = Real3{-2.32796526, -6.5950489, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -159,7 +159,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-0.520623446, 1.31207585, 6.41350084e-09}
+			var LookTarget = Real3{-2.32796526, -6.5950489, 6.51925802e-09}
 			var MoveSensitivity = 1
 		}
 	}
@@ -403,6 +403,79 @@ Level
 			{
 				var Path = ":/Player"
 			}
+		}
+	}
+	Cog [ContextId:11]
+	{
+		var Name = "SpriteText"
+		Transform 
+		{
+			var Translation = Real3{-7.07223988, -6.5950489, 6.41350084e-09}
+			var Scale = Real3{1.96235347, 1.7115761, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Reactive 
+		{
+			var Active = true
+		}
+		StartButton 
+		{
+			var NextLevel = "5cc6742aba33dfd4:PlussedLevel"
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+		SimpleButton 
+		{
+			var HoverColor = Real4{0.5, 0.5, 0.5, 1}
+			var HoverScalePercent = 0.800000012
+			var ClickColor = Real4{0.600000024, 0, 0, 1}
+			var ClickScale = 0.600000024
+			var ChangeTime = 0.100000001
+		}
+	}
+	Cog [ContextId:12]
+	{
+		var Name = "SpriteText"
+		Transform 
+		{
+			var Translation = Real3{1.3149581, -6.5950489, 6.51925802e-09}
+			var Scale = Real3{3.89171696, 2.42871714, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "Click here to go to plussed level"
+			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var FontSize = 32
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
 		}
 	}
 }

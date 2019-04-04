@@ -4,7 +4,7 @@ ImageContent
 	SpriteSourceBuilder 
 	{
 		var Name = "HappyFrog"
-		var ResourceId = 0x5cc27a8da7fe9e0c
+		var ResourceId = 0x5cc671eb0da22340
 		var FrameSizeX = 64
 		var FrameSizeY = 64
 		var FrameCount = 1
