@@ -8,4 +8,11 @@ DataContent
 		var LoaderType = "Level"
 		var Version = 0
 	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"StartScreen"
+		}
+	}
 }

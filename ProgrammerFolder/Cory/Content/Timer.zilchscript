@@ -11,6 +11,8 @@ class Timer : ZilchComponent
   /* Sets Time */
   [Property]
   var Time : Real = 40;
+  [Property]
+  var FroggerObj : CogPath = null;
   function Initialize(init : CogInitializer)
   {
     /* Sets Time to Start Time */
@@ -24,8 +26,16 @@ class Timer : ZilchComponent
    this.Time -= event.Dt;
    /* When Time is less then 0.01, the Time resets. */
    if(this.Time < 0.01)
-   this.Time = 40;
+   {
+   this.Time = this.StartTime;
+   this.FroggerObj.Cog.RigidBody.Velocity = Real3(0,0,0);
+   this.FroggerObj.Cog.Transform.Translation = this.FroggerObj.Cog.PlayerMovement.SpawnPos;
+   this.Space.SoundSpace.PlayCue(this.FroggerObj.Cog.PlayerMovement.PlayerDeath);
+   Console.WriteLine("Jorts");
+   this.Space.LevelSettings.LevelVars.Lives -= 1;
+   Console.WriteLine(this.Space.LevelSettings.LevelVars.Lives);
+   }
    /* Displays Time */
-   this.Owner.SpriteText.Text = "Time \n`Math.Round(this.Owner.Timer.Time)`";
+   this.Owner.SpriteText.Text = "Time `Math.Round(this.Owner.Timer.Time)`";
   }
 }

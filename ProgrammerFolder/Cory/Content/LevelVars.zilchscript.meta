@@ -6,4 +6,11 @@ TextContent
 		var Name = "LevelVars"
 		var ResourceId = 0x5cc289f533c85155
 	}
+	ContentTags 
+	{
+		var Tags = Array
+		{
+			"Cory Pack Start Screen"
+		}
+	}
 }

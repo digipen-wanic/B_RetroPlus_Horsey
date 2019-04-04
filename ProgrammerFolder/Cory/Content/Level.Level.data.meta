@@ -7,5 +7,6 @@ DataContent
 		var ResourceId = 0x59097123da28242a
 		var LoaderType = "Level"
 		var Version = 0
+		var ShowInEditor = true
 	}
 }

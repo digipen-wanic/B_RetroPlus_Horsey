@@ -97,7 +97,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{-5.23470879, 9.59772015, 20}
+			var Translation = Real3{-0.520623446, 1.31207585, 20}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -150,7 +150,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 32.9744492
+			var Size = 26.9971828
 		}
 		EditorCameraController 
 		{
@@ -159,7 +159,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{-5.23470879, 9.59772015, 0}
+			var LookTarget = Real3{-0.520623446, 1.31207585, 6.41350084e-09}
 			var MoveSensitivity = 1
 		}
 	}
@@ -311,25 +311,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [InheritId:"5cfbec2a6e6a59f0:Score"][ContextId:7]
-	{
-		Transform 
-		{
-			var Translation = Real3{-5.23470879, 9.59772015, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [InheritId:"5cfbec2d6f1737db:HighScore"][ContextId:8]
-	{
-		Transform 
-		{
-			var Translation = Real3{3.74578404, 9.68852997, 0}
-			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
-		}
-	}
-	Cog [ContextId:9]
+	Cog [ContextId:7]
 	{
 		var Name = "FroggerTitle"
 		Transform 
@@ -358,7 +340,7 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:10]
+	Cog [ContextId:8]
 	{
 		var Name = "PressAnyKey"
 		Transform 
@@ -389,6 +371,24 @@ Level
 		Fade 
 		{
 			var ColorShiftTime = 0.600000024
+		}
+	}
+	Cog [InheritId:"5cfbec2a6e6a59f0:Score"][ContextId:9]
+	{
+		Transform 
+		{
+			var Translation = Real3{-7.87573767, 9.01082706, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.641505241, 0.641505241, 1}
+		}
+	}
+	Cog [InheritId:"5cfbec2d6f1737db:HighScore"][ContextId:10]
+	{
+		Transform 
+		{
+			var Translation = Real3{-2.26988316, 8.91823387, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.639999986, 0.639999986, 1}
 		}
 	}
 }

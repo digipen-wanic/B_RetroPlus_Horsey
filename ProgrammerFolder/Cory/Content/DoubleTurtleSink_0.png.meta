@@ -1,0 +1,20 @@
+[Version:1]
+ImageContent 
+{
+	SpriteSourceBuilder 
+	{
+		var Name = "DoubleTurtleSink_0"
+		var ResourceId = 0x5cc3bf330d2bb1a6
+		var FrameSizeX = 128
+		var FrameSizeY = 64
+		var FrameCount = 2
+		var FrameDelay = 0.0833333358
+		var OriginX = 64
+		var OriginY = 32
+		var PixelsPerUnit = 64
+		var Sampling = SpriteSampling.Nearest
+		var Looping = true
+		var Slices = Real4{0, 0, 0, 0}
+		var Fill = SpriteFill.Stretch
+	}
+}

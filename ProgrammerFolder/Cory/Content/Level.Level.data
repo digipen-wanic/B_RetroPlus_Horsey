@@ -31,7 +31,7 @@ Level
 		LevelVars 
 		{
 			var CurrentLevel = "59097123da28242a:Level"
-			var GameStarted = 1
+			var GameStarted = 0
 		}
 	}
 	Cog [ContextId:2]
@@ -87,7 +87,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{5.73349857, -5.15872192, 22}
+			var Translation = Real3{0.49999997, -8.5, 29}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -140,7 +140,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 14.8163767
+			var Size = 44.5107765
 		}
 		EditorCameraController 
 		{
@@ -149,7 +149,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{5.73349857, -5.15872192, 2}
+			var LookTarget = Real3{0.49999997, -8.5, 9}
 			var MoveSensitivity = 1
 		}
 	}
@@ -158,8 +158,8 @@ Level
 		var Name = "GameCamera"
 		Transform 
 		{
-			var Translation = Real3{0, 0, 10}
-			var Scale = Real3{1, 1, 1}
+			var Translation = Real3{-0.110042572, -0.440171003, 10}
+			var Scale = Real3{1, 7.20208073, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		SelectionIcon 
@@ -206,7 +206,7 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-			var ResolutionOrAspect = Integer2{960, 960}
+			var ResolutionOrAspect = Integer2{920, 960}
 			var RenderToViewport = true
 			var ForwardViewportEvents = false
 			var ViewportScaling = ViewportScaling.Letterbox
@@ -220,27 +220,12 @@ Level
 			var FarPlane = 200
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 60
-			var Size = 20
+			var Size = 21
 		}
 		SoundListener 
 		{
 			var Active = true
 			var AttenuationScale = 1
-		}
-		GridDraw 
-		{
-			var Active = true
-			var HalfCellOffset = false
-			var CellSize = 1
-			var Axis = AxisDirection.Z
-			var Lines = 100
-			var DrawAxisOrigins = true
-			var AlwaysDrawInEditor = true
-			var DrawInGame = false
-			var GridColor = Real4{0.5, 0.5, 0.5, 0.400000006}
-			var GridHighlight = Real4{0, 0, 0, 0.400000006}
-			var HighlightInterval = 10
-			var FollowEditorCamera = false
 		}
 	}
 	Cog [ContextId:5]
@@ -248,9 +233,47 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0.5, -8.5, 0}
+			var Translation = Real3{0.5, -8.5, 0.5}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.400000006, 0.400000006, 0.5}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = false
+			var Asleep = false
+			var RotationLocked = true
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 51
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5cfe8126a2a19776:Player_0"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 0
+			var StartFrame = 1
 		}
 		PlayerMovement 
 		{
@@ -290,44 +313,6 @@ Level
 				var PathPreference1 = CogPathPreference.SpaceRelative
 				var PathPreference2 = CogPathPreference.Absolute
 			}
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Dynamic
-			var AllowSleep = false
-			var Asleep = false
-			var RotationLocked = true
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cfe8126a2a19776:Player_0"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 0
-			var StartFrame = 0
 		}
 	}
 	Cog [ContextId:8]
@@ -373,7 +358,10 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cfe886b44a7293f:Car2"
-			var Timer = 5
+			var TimerShort = 4.1500001
+			var TimerMedium = 5.76000023
+			var TimerLong = 9.14999962
+			var SpawnDis = 2
 			var SpawnRight = true
 		}
 	}
@@ -420,7 +408,10 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cfe87c777648da6:Car4"
-			var Timer = 5
+			var TimerShort = 11.8400002
+			var TimerMedium = 11.8400002
+			var TimerLong = 11.8400002
+			var SpawnDis = 2
 			var SpawnRight = true
 		}
 	}
@@ -429,7 +420,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{-12.5, 1.20000005, 0}
+			var Translation = Real3{-13.5, 1.20000005, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -464,10 +455,12 @@ Level
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
-		CarSpawner 
+		SpecialNumber5 
 		{
-			var EnemyType = "5cfe886b44a7293f:Car2"
-			var Timer = 7
+			var EnemyType = "5cc3ca4fd2211b2c:SmallLog1"
+			var TimerShort = 4.26000023
+			var TimerLong = 3.20000005
+			var SpawnDis = 2
 			var SpawnRight = true
 		}
 	}
@@ -476,7 +469,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{-12.5, 2.4000001, 0}
+			var Translation = Real3{-13.5, 2.4000001, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -513,8 +506,11 @@ Level
 		}
 		CarSpawner 
 		{
-			var EnemyType = "5cfe886b44a7293f:Car2"
-			var Timer = 6
+			var EnemyType = "5cc3cc37a1d548ad:LongLog1"
+			var TimerShort = 3.05999994
+			var TimerMedium = 3.05999994
+			var TimerLong = 3.05999994
+			var SpawnDis = 3
 			var SpawnRight = true
 		}
 	}
@@ -523,7 +519,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{-12.5, 4.80000019, 0}
+			var Translation = Real3{-13.5, 4.80000019, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -560,8 +556,11 @@ Level
 		}
 		CarSpawner 
 		{
-			var EnemyType = "5cfe886b44a7293f:Car2"
-			var Timer = 5
+			var EnemyType = "5cc3cd574d830d72:MediumLog1"
+			var TimerShort = 2.3900001
+			var TimerMedium = 2.3900001
+			var TimerLong = 4.59000015
+			var SpawnDis = 2
 			var SpawnRight = true
 		}
 	}
@@ -608,7 +607,10 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cfbef6f6e1a71ba:Car1"
-			var Timer = 5
+			var TimerShort = 4.69000006
+			var TimerMedium = 6.6500001
+			var TimerLong = 9.56000042
+			var SpawnDis = 2
 			var SpawnRight = false
 		}
 	}
@@ -655,7 +657,10 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cfd2f278b887822:Car3"
-			var Timer = 6
+			var TimerShort = 3.50999999
+			var TimerMedium = 7.71999979
+			var TimerLong = 3.50999999
+			var SpawnDis = 2
 			var SpawnRight = false
 		}
 	}
@@ -699,10 +704,12 @@ Level
 			var Offset = Real3{0, 0, 0}
 			var HalfSize = Real3{0.5, 0.5, 0.5}
 		}
-		CarSpawner 
+		SpecialNumber5 
 		{
 			var EnemyType = "5cfe87d773b12490:Car5"
-			var Timer = 5
+			var TimerShort = 3.61999989
+			var TimerLong = 6.61000013
+			var SpawnDis = 2
 			var SpawnRight = false
 		}
 	}
@@ -711,7 +718,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{12.5, 0, 0}
+			var Translation = Real3{13.5, 0, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -748,8 +755,11 @@ Level
 		}
 		CarSpawner 
 		{
-			var EnemyType = "5cfd2f278b887822:Car3"
-			var Timer = 3
+			var EnemyType = "5cc3c150ed926472:TripleTurtle_0"
+			var TimerShort = 2.72000003
+			var TimerMedium = 2.72000003
+			var TimerLong = 2.72000003
+			var SpawnDis = 2
 			var SpawnRight = false
 		}
 	}
@@ -758,7 +768,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{12.6277618, 3.5999999, 0}
+			var Translation = Real3{13.6277618, 3.5999999, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -795,8 +805,11 @@ Level
 		}
 		CarSpawner 
 		{
-			var EnemyType = "5cfd2f278b887822:Car3"
-			var Timer = 3
+			var EnemyType = "5cc3c027dcff4970:DoubleTurtle"
+			var TimerShort = 1.65999997
+			var TimerMedium = 1.65999997
+			var TimerLong = 1.65999997
+			var SpawnDis = 2
 			var SpawnRight = false
 		}
 	}
@@ -805,9 +818,9 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{0, 20, -5}
+			var Translation = Real3{-14.3708429, -0.25, 0}
 			var Scale = Real3{20, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
+			var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
 		}
 		RigidBody 
 		{
@@ -853,7 +866,7 @@ Level
 		var Name = "Cube"
 		Transform 
 		{
-			var Translation = Real3{-13.6208429, -0.25, 0}
+			var Translation = Real3{14.5143375, -0.5, 0}
 			var Scale = Real3{20, 1, 1}
 			var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
 		}
@@ -869,7 +882,7 @@ Level
 		}
 		BoxCollider 
 		{
-			var Ghost = false
+			var Ghost = true
 			var SendsEvents = true
 			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
 			var CollisionGroup = "4e740859314e5515:DefaultGroup"
@@ -898,12 +911,12 @@ Level
 	}
 	Cog [ContextId:20]
 	{
-		var Name = "Cube"
+		var Name = "Goal1"
 		Transform 
 		{
-			var Translation = Real3{13.6719475, -0.5, 0}
-			var Scale = Real3{20, 1, 1}
-			var Rotation = Quaternion{0, 0, 0.707106829, 0.707106829}
+			var Translation = Real3{-0.102209806, 6.64893293, 0}
+			var Scale = Real3{1.70000005, 1.37615609, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		RigidBody 
 		{
@@ -936,12 +949,15 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+			var SpriteSource = "5cc27ac3b4348d93:nothing"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
 			var AnimationSpeed = 1
 			var StartFrame = 0
+		}
+		Goal 
+		{
 		}
 	}
 	Cog [ContextId:21]
@@ -949,8 +965,8 @@ Level
 		var Name = "Goal1"
 		Transform 
 		{
-			var Translation = Real3{-0.102209806, 6.55883741, 0}
-			var Scale = Real3{1.70000005, 1, 1}
+			var Translation = Real3{-4.22791958, 6.66237116, 0}
+			var Scale = Real3{1.70000005, 1.47104943, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		RigidBody 
@@ -1000,8 +1016,8 @@ Level
 		var Name = "Goal1"
 		Transform 
 		{
-			var Translation = Real3{-3.89779139, 6.48218012, 0}
-			var Scale = Real3{1.70000005, 1, 1}
+			var Translation = Real3{-8.20690346, 6.65789318, 0}
+			var Scale = Real3{1.70000005, 1.45312893, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		RigidBody 
@@ -1051,8 +1067,8 @@ Level
 		var Name = "Goal1"
 		Transform 
 		{
-			var Translation = Real3{-7.69337225, 6.50773335, 0}
-			var Scale = Real3{1.70000005, 1, 1}
+			var Translation = Real3{4.01566696, 6.64893389, 0}
+			var Scale = Real3{1.70000005, 1.32543492, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		RigidBody 
@@ -1102,8 +1118,8 @@ Level
 		var Name = "Goal1"
 		Transform 
 		{
-			var Translation = Real3{3.79558158, 6.55883837, 0}
-			var Scale = Real3{1.70000005, 1, 1}
+			var Translation = Real3{8.05358887, 6.67448521, 0}
+			var Scale = Real3{1.70000005, 1.25992942, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		RigidBody 
@@ -1150,62 +1166,11 @@ Level
 	}
 	Cog [ContextId:25]
 	{
-		var Name = "Goal1"
-		Transform 
-		{
-			var Translation = Real3{7.54005575, 6.58438969, 0}
-			var Scale = Real3{1.70000005, 1, 1}
-			var Rotation = Quaternion{0, 0, 0, 1}
-		}
-		RigidBody 
-		{
-			var Velocity = Real3{0, 0, 0}
-			var AngularVelocity = Real3{0, 0, 0}
-			var DynamicState = RigidBodyDynamicState.Static
-			var AllowSleep = true
-			var Asleep = false
-			var RotationLocked = false
-			var Mode2D = Mode2DStates.InheritFromSpace
-		}
-		BoxCollider 
-		{
-			var Ghost = false
-			var SendsEvents = true
-			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
-			var CollisionGroup = "4e740859314e5515:DefaultGroup"
-			var Offset = Real3{0, 0, 0}
-			var HalfSize = Real3{0.5, 0.5, 0.5}
-		}
-		Sprite 
-		{
-			var Visible = true
-			var ViewCulling = true
-			var VisibilityEvents = true
-			var OverrideBoundingBox = false
-			var LocalAabbCenter = Real3{0, 0, 0}
-			var LocalAabbHalfExtents = Real3{1, 1, 1}
-			var GroupSortValue = 0
-			var Material = "582c575af53d18c9:AlphaSprite"
-			var VertexColor = Real4{1, 1, 1, 1}
-			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cc27ac3b4348d93:nothing"
-			var FlipX = false
-			var FlipY = false
-			var AnimationActive = true
-			var AnimationSpeed = 1
-			var StartFrame = 0
-		}
-		Goal 
-		{
-		}
-	}
-	Cog [ContextId:26]
-	{
 		var Name = "Background_02"
 		Transform 
 		{
 			var Translation = Real3{-0.0766555071, -0.843227565, -10}
-			var Scale = Real3{1, 1, 1}
+			var Scale = Real3{2.06714344, 1.7735498, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -1220,7 +1185,7 @@ Level
 			var Material = "582c575af53d18c9:AlphaSprite"
 			var VertexColor = Real4{1, 1, 1, 1}
 			var GeometryMode = SpriteGeometryMode.ZPlane
-			var SpriteSource = "5cc2724e6b874563:Background_02"
+			var SpriteSource = "5cc3bdf956fc14c6:Background_03"
 			var FlipX = false
 			var FlipY = false
 			var AnimationActive = true
@@ -1228,13 +1193,13 @@ Level
 			var StartFrame = 0
 		}
 	}
-	Cog [ContextId:27]
+	Cog [ContextId:26]
 	{
 		var Name = "Hedges_01"
 		Transform 
 		{
-			var Translation = Real3{-0.0766551495, 7.05244684, -4.5}
-			var Scale = Real3{1.81080854, 1.85112786, 1}
+			var Translation = Real3{-0.113335609, 7.05244684, -4.5}
+			var Scale = Real3{1.91708255, 1.85112786, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
 		Sprite 
@@ -1261,45 +1226,154 @@ Level
 	{
 		Transform 
 		{
-			var Translation = Real3{-5.23470879, 9.59772015, 0}
+			var Translation = Real3{-7.87573767, 9.01082706, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
+			var Scale = Real3{0.641505241, 0.641505241, 1}
 		}
 	}
-	Cog [InheritId:"5cfbec2d6f1737db:HighScore"][ContextId:28]
+	Cog [InheritId:"5cfbec2d6f1737db:HighScore"][ContextId:27]
 	{
 		Transform 
 		{
-			var Translation = Real3{3.74578404, 9.68852997, 0}
+			var Translation = Real3{-2.26988316, 8.91823387, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{1, 1, 1}
+			var Scale = Real3{0.639999986, 0.639999986, 1}
 		}
 	}
 	Cog [InheritId:"5cfbeec3142955ed:Timer"][ContextId:7]
 	{
 		Transform 
 		{
-			var Translation = Real3{-1.00656271, 11.8601131, 0}
+			var Translation = Real3{22.7993488, 8.37542534, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
 			var Scale = Real3{1, 1, 1}
 		}
 	}
-	Cog [InheritId:"5cfd26fd598b7e01:TimeBar"][ContextId:29]
+	Cog [InheritId:"5cfd26fd598b7e01:TimeBar"][ContextId:28]
 	{
 		Transform 
 		{
-			var Translation = Real3{5.53295612, -9.52481747, 0}
+			var Translation = Real3{5.30894423, -10.5448484, 0}
 			var Rotation = Quaternion{0, 0, 0, 1}
-			var Scale = Real3{15, 1, 1}
+			var Scale = Real3{15, 0.5, 1}
 		}
 	}
-	Cog [InheritId:"5cc529d4f8aba69b:Upgrade"][ContextId:30]
+	Cog [ContextId:29]
 	{
+		var Name = "SpriteText"
 		Transform 
 		{
-			var Translation = Real3{5.73349857, -5.15872192, 2}
+			var Translation = Real3{6.32656574, -10.5820618, 0}
+			var Scale = Real3{3.51936936, 2.83592391, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		SpriteText 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var Text = "Time"
+			var Font = "57343753bb4eaaec:NotoSans-Regular"
+			var FontSize = 32
+			var PixelsPerUnit = 128
+			var TextAlign = TextAlign.Center
+		}
+	}
+	Cog [ContextId:30]
+	{
+		var Name = "Cube"
+		Transform 
+		{
+			var Translation = Real3{0.0138694644, -9.48860359, -5}
+			var Scale = Real3{22.5950718, 2.43947697, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		RigidBody 
+		{
+			var Velocity = Real3{0, 0, 0}
+			var AngularVelocity = Real3{0, 0, 0}
+			var DynamicState = RigidBodyDynamicState.Dynamic
+			var AllowSleep = true
+			var Asleep = false
+			var RotationLocked = false
+			var Mode2D = Mode2DStates.InheritFromSpace
+		}
+		BoxCollider 
+		{
+			var Ghost = false
+			var SendsEvents = true
+			var Material = "4de020863e872da8:DefaultPhysicsMaterial"
+			var CollisionGroup = "4e740859314e5515:DefaultGroup"
+			var Offset = Real3{0, 0, 0}
+			var HalfSize = Real3{0.5, 0.5, 0.5}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{0, 0, 0, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5586f579ca73ecc2:SquareBordered"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:31]
+	{
+		var Name = "Backgroun"
+		Transform 
+		{
+			var Translation = Real3{-0.0808968544, -8.11944294, -4.5}
+			var Scale = Real3{2.25060964, 1.91397953, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		Sprite 
+		{
+			var Visible = true
+			var ViewCulling = true
+			var VisibilityEvents = true
+			var OverrideBoundingBox = false
+			var LocalAabbCenter = Real3{0, 0, 0}
+			var LocalAabbHalfExtents = Real3{1, 1, 1}
+			var GroupSortValue = 0
+			var Material = "582c575af53d18c9:AlphaSprite"
+			var VertexColor = Real4{1, 1, 1, 1}
+			var GeometryMode = SpriteGeometryMode.ZPlane
+			var SpriteSource = "5cc523b27280d8d7:Backgroun"
+			var FlipX = false
+			var FlipY = false
+			var AnimationActive = true
+			var AnimationSpeed = 1
+			var StartFrame = 0
+		}
+	}
+	Cog [ContextId:32]
+	{
+		var Name = "LivesControl"
+		Transform 
+		{
+			var Translation = Real3{16.7189674, -6.83560848, 10}
 			var Scale = Real3{1, 1, 1}
+			var Rotation = Quaternion{0, 0, 0, 1}
+		}
+		DeathScreen 
+		{
 		}
 	}
 }
