@@ -7,7 +7,7 @@ class Goal : ZilchComponent
   
   function Initialize(init : CogInitializer)
   {
-    this.PlayerWin = SoundCue.PlayerDeath;
+    this.PlayerWin = SoundCue.PlayerWinAlt;
     //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
    Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionStarted);
   }
@@ -23,7 +23,9 @@ class Goal : ZilchComponent
       player.Transform.Translation = Real3(0.5, -8.5, 0);
       this.Space.SoundSpace.PlayCue(this.PlayerWin);
       //this.Space.LevelVars.Lives -= 1;
-      
+      this.Space.LevelSettings.LevelVars.NumberOfGoals += 1;
+      var timeReset = this.Space.FindObjectByName("Timer");
+      timeReset.Timer.Time = 40;
     }
     
   }

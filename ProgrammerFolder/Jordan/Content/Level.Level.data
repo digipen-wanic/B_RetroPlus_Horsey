@@ -87,7 +87,7 @@ Level
 		var Name = "EditorCamera"
 		Transform 
 		{
-			var Translation = Real3{2.45008755, -3.97449589, 30}
+			var Translation = Real3{4.59266186, -0.657307208, 30}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, -1.09278471e-08, 0, 1}
 		}
@@ -140,7 +140,7 @@ Level
 			var FarPlane = 500
 			var PerspectiveMode = PerspectiveMode.Orthographic
 			var FieldOfView = 45
-			var Size = 26.9971638
+			var Size = 36.4423561
 		}
 		EditorCameraController 
 		{
@@ -149,7 +149,7 @@ Level
 			var LookDistance = 20
 			var VerticalAngle = 0
 			var HorizontalAngle = 0
-			var LookTarget = Real3{2.45008755, -3.97449589, 10}
+			var LookTarget = Real3{4.59266186, -0.657307208, 10}
 			var MoveSensitivity = 1
 		}
 	}
@@ -233,7 +233,7 @@ Level
 		var Name = "Player"
 		Transform 
 		{
-			var Translation = Real3{0.5, -8.5, 9}
+			var Translation = Real3{0.5, -8.5, 0}
 			var Scale = Real3{1, 1, 1}
 			var Rotation = Quaternion{0, 0, 0, 1}
 		}
@@ -756,9 +756,9 @@ Level
 		CarSpawner 
 		{
 			var EnemyType = "5cc3c150ed926472:TripleTurtle_0"
-			var TimerShort = 2.72000003
-			var TimerMedium = 2.72000003
-			var TimerLong = 2.72000003
+			var TimerShort = 3.29999995
+			var TimerMedium = 3.29999995
+			var TimerLong = 3.29999995
 			var SpawnDis = 2
 			var SpawnRight = false
 		}
@@ -1390,6 +1390,69 @@ Level
 		}
 		DeathScreen 
 		{
+		}
+	}
+	Cog [InheritId:"5cfe87d773b12490:Car5"][ContextId:33]
+	{
+		Transform 
+		{
+			var Translation = Real3{4.11050081, -2.4000001, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"5cfd2f278b887822:Car3"][ContextId:34]
+	{
+		Transform 
+		{
+			var Translation = Real3{2.20421791, -4.80000019, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.99000001, 0.99000001, 1}
+		}
+	}
+	Cog [InheritId:"5cfd2f278b887822:Car3"][ContextId:35]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.96112013, -4.80000019, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.99000001, 0.99000001, 1}
+		}
+	}
+	Cog [InheritId:"5cfe886b44a7293f:Car2"][ContextId:36]
+	{
+		Transform 
+		{
+			var Translation = Real3{-7.40643406, -6, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"5cfbef6f6e1a71ba:Car1"][ContextId:37]
+	{
+		Transform 
+		{
+			var Translation = Real3{8.06159687, -7.19999981, 0}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{0.99000001, 0.99000001, 1}
+		}
+	}
+	Cog [InheritId:"5cc3ca4fd2211b2c:SmallLog1"][ContextId:38]
+	{
+		Transform 
+		{
+			var Translation = Real3{-4.2218399, 1.20000005, 0.00499916077}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
+		}
+	}
+	Cog [InheritId:"5cc3cd574d830d72:MediumLog1"][ContextId:39]
+	{
+		Transform 
+		{
+			var Translation = Real3{-10.0223522, 4.80000019, 0.00499916077}
+			var Rotation = Quaternion{0, 0, 0, 1}
+			var Scale = Real3{1, 1, 1}
 		}
 	}
 }

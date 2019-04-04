@@ -24,7 +24,10 @@ class Timer : ZilchComponent
    this.Time -= event.Dt;
    /* When Time is less then 0.01, the Time resets. */
    if(this.Time < 0.01)
+   {
    this.Time = 40;
+   this.Space.LevelSettings.LevelVars.Lives -= 1;
+ }
    /* Displays Time */
    this.Owner.SpriteText.Text = "Time \n`Math.Round(this.Owner.Timer.Time)`";
   }

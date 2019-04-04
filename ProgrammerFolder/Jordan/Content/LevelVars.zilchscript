@@ -3,16 +3,19 @@ class LevelVars : ZilchComponent
   
   var Lives : Real = 3;
   
+  var LoseSound : SoundCue = null;
+  
   [Property]
   var CurrentLevel : Level = null;
   
   [Property]
   var GameStarted = 0;
   
-  var Epic : Real = 0;
+  var NumberOfGoals : Real = 0;
   
   function Initialize(init : CogInitializer)
   {
+    this.LoseSound = SoundCue.GameOverTheme;
   Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
   }
   
@@ -23,6 +26,13 @@ class LevelVars : ZilchComponent
       this.GameStarted = 1;
       this.Space.LoadLevel(Level.Level);
     }
+    
+    if(this.NumberOfGoals == 5)
+    {
+      this.Space.LoadLevel(Level.StartScreen);
+      
+    }
+    Console.WriteLine(this.Lives);
     if(this.Lives == 0)
     {
       Console.WriteLine("Fish");
@@ -34,7 +44,10 @@ class LevelVars : ZilchComponent
       this.Space.CreateAtPosition(Archetype.GameOverNo, Real3(1.66, -3.57, 9));
       //this.Owner.Transform.Translation = Real3(-1.938, -3.576, 0);
       this.Space.CreateAtPosition(Archetype.GameOverYes, Real3(-1.938, -3.576, 9));
-      this.Lives = -3    ;}
-    
+      this.Lives = 3;
+      this.Space.SoundSpace.PlayCue(this.LoseSound);
+      Console.WriteLine(this.Lives);
+      
+      }
   }
 }
