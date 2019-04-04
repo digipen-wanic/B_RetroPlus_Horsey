@@ -1,0 +1,11 @@
+[Version:1]
+DataContent 
+{
+	DataBuilder 
+	{
+		var Name = "PlayerWin"
+		var ResourceId = 0x5cc6660878a78641
+		var LoaderType = "SoundCue"
+		var Version = 0
+	}
+}

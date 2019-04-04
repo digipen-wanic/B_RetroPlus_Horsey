@@ -34,6 +34,7 @@ class EnemyMovement : ZilchComponent
       this.Collided.RigidBody.Velocity = Real3(0,0,0);
       this.Owner.RigidBody.Velocity = this.Velocity;
       this.Space.SoundSpace.PlayCue(this.PlayerDeath);
+      this.Space.LevelSettings.LevelVars.Lives -= 1;
     }
     else
     {

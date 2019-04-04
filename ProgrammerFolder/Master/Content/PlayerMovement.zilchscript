@@ -118,6 +118,8 @@ class PlayerMovement : ZilchComponent
       this.Owner.Transform.Translation = this.SpawnPos;
       this.Space.SoundSpace.PlayCue(this.PlayerDeath);
       this.Space.LevelSettings.LevelVars.Lives -= 1;
+      var timeReset = this.Space.FindObjectByName("Timer");
+      timeReset.Timer.Time = 40;
     }
     else if(event.OtherObject == this.Space.FindObjectByName("Goal1"))
     {
@@ -145,7 +147,8 @@ class PlayerMovement : ZilchComponent
         Console.WriteLine("Jorts");
         this.Space.LevelSettings.LevelVars.Lives -= 1;
         Console.WriteLine(this.Space.LevelSettings.LevelVars.Lives);
-        
+        var timeReset = this.Space.FindObjectByName("Timer");
+        timeReset.Timer.Time = 40;
         
       }
       
